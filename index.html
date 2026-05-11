@@ -1125,7 +1125,7 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
   .hero-waves {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 60%;
+    height: 32%;
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
@@ -1145,9 +1145,21 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     height: 100%;
     display: block;
   }
-  .wave-back  { animation: waveDrift 42s linear infinite, waveBob 11s ease-in-out infinite; opacity: 0.85; filter: blur(1.5px); }
-  .wave-mid   { animation: waveDrift 28s linear infinite reverse, waveBob 9s ease-in-out -2s infinite; opacity: 0.90; filter: blur(0.6px); }
-  .wave-front { animation: waveDrift 18s linear infinite, waveBob 7s ease-in-out -4s infinite; opacity: 1; }
+  /* Liquid-glass styling: translucent fills + soft blur + saturation
+     so each wave layer reads as a sheet of glass over the gradient
+     rather than a flat color band. */
+  .wave-back  {
+    animation: waveDrift 46s linear infinite, waveBob 11s ease-in-out infinite;
+    filter: blur(2px) saturate(115%);
+  }
+  .wave-mid   {
+    animation: waveDrift 30s linear infinite reverse, waveBob 9s ease-in-out -2s infinite;
+    filter: blur(0.8px) saturate(120%);
+  }
+  .wave-front {
+    animation: waveDrift 20s linear infinite, waveBob 7s ease-in-out -4s infinite;
+    filter: saturate(125%);
+  }
 
   @keyframes waveDrift {
     0%   { transform: translate3d(0, 0, 0); }
@@ -1155,21 +1167,30 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
   }
   @keyframes waveBob {
     0%, 100% { translate: 0 0; }
-    50%      { translate: 0 -4px; }
+    50%      { translate: 0 -3px; }
   }
 
-  /* Soft foam line where the front wave meets the air */
-  .wave-front svg .crest {
+  /* Crest highlight (foam line) — thin specular stroke along the
+     top edge of each wave for the liquid-glass refraction feel. */
+  .wave-front svg .crest,
+  .wave-mid svg .crest,
+  .wave-back svg .crest {
     fill: none;
-    stroke: rgba(255,255,255,0.55);
-    stroke-width: 1.5;
     stroke-linecap: round;
-    filter: drop-shadow(0 1px 2px rgba(255,255,255,0.3));
+    vector-effect: non-scaling-stroke;
+  }
+  .wave-front svg .crest {
+    stroke: rgba(255,255,255,0.55);
+    stroke-width: 1.2;
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.4));
   }
   .wave-mid svg .crest {
-    fill: none;
-    stroke: rgba(255,255,255,0.25);
+    stroke: rgba(255,255,255,0.28);
     stroke-width: 1;
+  }
+  .wave-back svg .crest {
+    stroke: rgba(255,255,255,0.12);
+    stroke-width: 0.8;
   }
 
   /* Light sheen — diagonal beam that sweeps across every ~10s */
@@ -1385,55 +1406,60 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
   <div class="hero-sheen" aria-hidden="true"></div>
 
   <div class="hero-waves" aria-hidden="true">
-    <!-- Back wave: longest swell (1 period across viewBox), softest, palest -->
+    <!-- Shared SVG defs: one source of gradients referenced by all wave copies -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="ss-grad-back" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#9aabbf" stop-opacity="0"/>
+          <stop offset="20%"  stop-color="#8a9bb0" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#7a8ba0" stop-opacity="0.55"/>
+        </linearGradient>
+        <linearGradient id="ss-grad-mid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#b3c0d0" stop-opacity="0"/>
+          <stop offset="18%"  stop-color="#9aa8bd" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#8b9bb2" stop-opacity="0.65"/>
+        </linearGradient>
+        <linearGradient id="ss-grad-front" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#dde3ec" stop-opacity="0"/>
+          <stop offset="15%"  stop-color="#c7d0dc" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#a8b6c9" stop-opacity="0.75"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <!-- Back wave: longest swell, softest, hides into the gradient at its top edge -->
     <div class="wave-track wave-back">
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad-back" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#a3b1c2"/>
-            <stop offset="100%" stop-color="#8a9bb0"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,160 C360,120 1080,200 1440,160 L1440,200 L0,200 Z" fill="url(#grad-back)"/>
+        <path d="M0,140 C360,100 1080,180 1440,140 L1440,200 L0,200 Z" fill="url(#ss-grad-back)"/>
+        <path class="crest" d="M0,140 C360,100 1080,180 1440,140"/>
       </svg>
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,160 C360,120 1080,200 1440,160 L1440,200 L0,200 Z" fill="#8a9bb0"/>
+        <path d="M0,140 C360,100 1080,180 1440,140 L1440,200 L0,200 Z" fill="url(#ss-grad-back)"/>
+        <path class="crest" d="M0,140 C360,100 1080,180 1440,140"/>
       </svg>
     </div>
 
-    <!-- Mid wave: two periods across viewBox, mid tone, faint foam line -->
+    <!-- Mid wave: two periods, mid translucency -->
     <div class="wave-track wave-mid">
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad-mid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#b3c0d0"/>
-            <stop offset="100%" stop-color="#9aa8bd"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,150 C180,125 540,175 720,150 C900,125 1260,175 1440,150 L1440,200 L0,200 Z" fill="url(#grad-mid)"/>
-        <path class="crest" d="M0,150 C180,125 540,175 720,150 C900,125 1260,175 1440,150"/>
+        <path d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 L1440,200 L0,200 Z" fill="url(#ss-grad-mid)"/>
+        <path class="crest" d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150"/>
       </svg>
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,150 C180,125 540,175 720,150 C900,125 1260,175 1440,150 L1440,200 L0,200 Z" fill="#9aa8bd"/>
-        <path class="crest" d="M0,150 C180,125 540,175 720,150 C900,125 1260,175 1440,150"/>
+        <path d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 L1440,200 L0,200 Z" fill="url(#ss-grad-mid)"/>
+        <path class="crest" d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150"/>
       </svg>
     </div>
 
-    <!-- Front wave: three periods, lightest tone, visible foam highlight -->
+    <!-- Front wave: three smaller periods, brightest with foam highlight -->
     <div class="wave-track wave-front">
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad-front" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#d2dae4"/>
-            <stop offset="100%" stop-color="#b6c2d2"/>
-          </linearGradient>
-        </defs>
-        <path d="M0,170 C120,155 360,185 480,170 C600,155 840,185 960,170 C1080,155 1320,185 1440,170 L1440,200 L0,200 Z" fill="url(#grad-front)"/>
-        <path class="crest" d="M0,170 C120,155 360,185 480,170 C600,155 840,185 960,170 C1080,155 1320,185 1440,170"/>
+        <path d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 L1440,200 L0,200 Z" fill="url(#ss-grad-front)"/>
+        <path class="crest" d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168"/>
       </svg>
       <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,170 C120,155 360,185 480,170 C600,155 840,185 960,170 C1080,155 1320,185 1440,170 L1440,200 L0,200 Z" fill="#b6c2d2"/>
-        <path class="crest" d="M0,170 C120,155 360,185 480,170 C600,155 840,185 960,170 C1080,155 1320,185 1440,170"/>
+        <path d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 L1440,200 L0,200 Z" fill="url(#ss-grad-front)"/>
+        <path class="crest" d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168"/>
       </svg>
     </div>
   </div>
