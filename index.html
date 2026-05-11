@@ -1125,7 +1125,7 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
   .hero-waves {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 32%;
+    height: 22%;
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
@@ -1136,12 +1136,12 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     left: 0;
     width: 200%;
     height: 100%;
-    display: flex;
     will-change: transform;
   }
   .wave-track svg {
-    flex: 0 0 50%;
-    width: 50%;
+    position: absolute;
+    inset: 0;
+    width: 100%;
     height: 100%;
     display: block;
   }
@@ -1427,39 +1427,32 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
       </defs>
     </svg>
 
-    <!-- Back wave: longest swell, softest, hides into the gradient at its top edge -->
+    <!-- Each wave is a single SVG whose path contains TWO full periods inside the viewBox.
+         The element is 200% viewport wide and animates from translateX(0) to translateX(-50%),
+         which shifts by exactly one period — so the visible window always shows identical
+         content. No flex boundary, no subpixel seam. -->
+
+    <!-- Back wave: 2 long swells across viewBox (1 per 1440 units) -->
     <div class="wave-track wave-back">
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,140 C360,100 1080,180 1440,140 L1440,200 L0,200 Z" fill="url(#ss-grad-back)"/>
-        <path class="crest" d="M0,140 C360,100 1080,180 1440,140"/>
-      </svg>
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,140 C360,100 1080,180 1440,140 L1440,200 L0,200 Z" fill="url(#ss-grad-back)"/>
-        <path class="crest" d="M0,140 C360,100 1080,180 1440,140"/>
+      <svg viewBox="0 0 2880 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,140 C360,100 1080,180 1440,140 C1800,100 2520,180 2880,140 L2880,200 L0,200 Z" fill="url(#ss-grad-back)"/>
+        <path class="crest" d="M0,140 C360,100 1080,180 1440,140 C1800,100 2520,180 2880,140"/>
       </svg>
     </div>
 
-    <!-- Mid wave: two periods, mid translucency -->
+    <!-- Mid wave: 4 medium humps across viewBox (2 per 1440 units) -->
     <div class="wave-track wave-mid">
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 L1440,200 L0,200 Z" fill="url(#ss-grad-mid)"/>
-        <path class="crest" d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150"/>
-      </svg>
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 L1440,200 L0,200 Z" fill="url(#ss-grad-mid)"/>
-        <path class="crest" d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150"/>
+      <svg viewBox="0 0 2880 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 C1620,128 1980,172 2160,150 C2340,128 2700,172 2880,150 L2880,200 L0,200 Z" fill="url(#ss-grad-mid)"/>
+        <path class="crest" d="M0,150 C180,128 540,172 720,150 C900,128 1260,172 1440,150 C1620,128 1980,172 2160,150 C2340,128 2700,172 2880,150"/>
       </svg>
     </div>
 
-    <!-- Front wave: three smaller periods, brightest with foam highlight -->
+    <!-- Front wave: 6 quick humps across viewBox (3 per 1440 units) -->
     <div class="wave-track wave-front">
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 L1440,200 L0,200 Z" fill="url(#ss-grad-front)"/>
-        <path class="crest" d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168"/>
-      </svg>
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 L1440,200 L0,200 Z" fill="url(#ss-grad-front)"/>
-        <path class="crest" d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168"/>
+      <svg viewBox="0 0 2880 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 C1560,154 1800,182 1920,168 C2040,154 2280,182 2400,168 C2520,154 2760,182 2880,168 L2880,200 L0,200 Z" fill="url(#ss-grad-front)"/>
+        <path class="crest" d="M0,168 C120,154 360,182 480,168 C600,154 840,182 960,168 C1080,154 1320,182 1440,168 C1560,154 1800,182 1920,168 C2040,154 2280,182 2400,168 C2520,154 2760,182 2880,168"/>
       </svg>
     </div>
   </div>
