@@ -1750,14 +1750,13 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     <div class="ss-modal-check">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16.5L13.5 22L24 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <h2 id="ss-modal-title">You're in. Congrats!</h2>
-    <p>Thanks for reaching out. The team will get back to you within 24 hours.<br>Want to skip the wait? Book a call right now.</p>
+    <h2 id="ss-modal-title">Nice! Let's Chat.</h2>
+    <p>We keep it quick: 15 minutes, zero fluff. Book a time and we'll walk you through how it works.</p>
     <div class="ss-modal-actions">
       <button type="button" class="ss-btn-primary" id="ss-schedule-btn">
-        Schedule a call now
+        Pick a Time
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <button type="button" class="ss-btn-secondary" id="ss-modal-dismiss">Maybe later</button>
     </div>
   </div>
 </div>
@@ -1769,7 +1768,6 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
 
   const modal = document.getElementById('ss-modal');
   const closeBtn = document.getElementById('ss-modal-close');
-  const dismissBtn = document.getElementById('ss-modal-dismiss');
   const scheduleBtn = document.getElementById('ss-schedule-btn');
 
   function openModal() {
@@ -1781,7 +1779,6 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     document.body.style.overflow = '';
   }
   closeBtn.addEventListener('click', closeModal);
-  dismissBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
