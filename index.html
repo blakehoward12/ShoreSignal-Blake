@@ -1038,19 +1038,67 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
 
   /* Hero gradient breathing */
   .hero {
-    background-size: 200% 200%;
-    animation: heroDrift 22s ease-in-out infinite;
+    background-size: 220% 220%;
+    animation: heroDrift 32s ease-in-out infinite;
   }
   @keyframes heroDrift {
     0%, 100% { background-position: 0% 0%; }
     50%      { background-position: 100% 50%; }
   }
   .hero::before {
-    animation: heroGlow 14s ease-in-out infinite alternate;
+    animation: heroGlow 20s ease-in-out infinite alternate;
+    will-change: transform, opacity;
   }
   @keyframes heroGlow {
     0%   { opacity: 0.85; transform: translate3d(0, 0, 0) scale(1); }
     100% { opacity: 1;    transform: translate3d(-2%, 1%, 0) scale(1.05); }
+  }
+
+  /* Hero aurora blobs — slow drifting, very subtle, behind content */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: -10%;
+    pointer-events: none;
+    z-index: 1;
+    background:
+      radial-gradient(circle at 18% 28%, rgba(58,124,165,0.18) 0%, transparent 38%),
+      radial-gradient(circle at 78% 22%, rgba(200,149,106,0.14) 0%, transparent 42%),
+      radial-gradient(circle at 65% 80%, rgba(45,90,123,0.16) 0%, transparent 45%),
+      radial-gradient(circle at 22% 82%, rgba(255,255,255,0.22) 0%, transparent 40%);
+    filter: blur(40px);
+    mix-blend-mode: soft-light;
+    animation: heroAurora 28s ease-in-out infinite;
+    will-change: transform, filter;
+  }
+  @keyframes heroAurora {
+    0%   { transform: translate3d(0, 0, 0)    scale(1)    rotate(0deg); }
+    33%  { transform: translate3d(-3%, 2%, 0) scale(1.06) rotate(2deg); }
+    66%  { transform: translate3d(3%, -2%, 0) scale(0.96) rotate(-2deg); }
+    100% { transform: translate3d(0, 0, 0)    scale(1)    rotate(0deg); }
+  }
+  /* Make sure hero foreground sits above all background layers */
+  .hero-content,
+  .hero-bottom { position: relative; z-index: 2; }
+
+  /* Subtle film-grain texture on hero (tiny, additive) */
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    animation: grainShift 8s steps(6) infinite;
+  }
+  @keyframes grainShift {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-2%, 1%); }
+    40%  { transform: translate(1%, -2%); }
+    60%  { transform: translate(-1%, 2%); }
+    80%  { transform: translate(2%, -1%); }
+    100% { transform: translate(0, 0); }
   }
 
   /* Hero load-in reveal (blur + lift + fade, staggered) */
@@ -1207,6 +1255,7 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
 </nav>
 
 <section class="hero">
+  <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>Creator sourcing & AI visibility for scaling DTC brands</h1>
   </div>
