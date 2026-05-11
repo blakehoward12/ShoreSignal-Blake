@@ -1116,30 +1116,82 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     100% { opacity: 1;   transform: translate3d(-4%, 3%, 0) scale(1.12); }
   }
 
-  /* Hero aurora blobs — drifting color clouds behind content */
-  .hero::after {
-    content: '';
+  /* ── SHORELINE WAVES ────────────────────────────────────────
+     Three SVG wave layers at the bottom of the hero, drifting
+     horizontally at different speeds + gently bobbing. Sticks to
+     the existing cream → slate-blue palette so it reads as water
+     meeting shore rather than an overlay. */
+  .hero-waves {
     position: absolute;
-    inset: -15%;
+    left: 0; right: 0; bottom: 0;
+    height: 55%;
     pointer-events: none;
     z-index: 1;
-    background:
-      radial-gradient(circle at 18% 28%, rgba(58,124,165,0.45) 0%, transparent 36%),
-      radial-gradient(circle at 78% 22%, rgba(200,149,106,0.35) 0%, transparent 40%),
-      radial-gradient(circle at 65% 80%, rgba(45,90,123,0.40) 0%, transparent 42%),
-      radial-gradient(circle at 22% 82%, rgba(255,255,255,0.45) 0%, transparent 38%);
-    filter: blur(50px);
-    mix-blend-mode: soft-light;
-    animation: heroAurora 14s ease-in-out infinite;
-    will-change: transform, filter;
+    overflow: hidden;
   }
-  @keyframes heroAurora {
-    0%   { transform: translate3d(0, 0, 0)      scale(1)    rotate(0deg); }
-    25%  { transform: translate3d(-7%, 4%, 0)   scale(1.10) rotate(3deg); }
-    50%  { transform: translate3d(5%, -3%, 0)   scale(0.94) rotate(-2deg); }
-    75%  { transform: translate3d(-3%, -5%, 0)  scale(1.05) rotate(4deg); }
-    100% { transform: translate3d(0, 0, 0)      scale(1)    rotate(0deg); }
+  .hero-waves svg {
+    position: absolute;
+    left: -10%;
+    width: 220%;
+    height: 100%;
+    display: block;
   }
+  .hero-wave-1 { bottom: 0;  opacity: 0.55; animation: waveDriftA 18s linear infinite, waveBob 7s ease-in-out infinite; }
+  .hero-wave-2 { bottom: 0;  opacity: 0.45; animation: waveDriftB 26s linear infinite, waveBob 9s ease-in-out -2s infinite; }
+  .hero-wave-3 { bottom: 0;  opacity: 0.35; animation: waveDriftA 38s linear infinite, waveBob 11s ease-in-out -4s infinite; }
+  @keyframes waveDriftA {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes waveDriftB {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes waveBob {
+    0%, 100% { translate: 0 0; }
+    50%      { translate: 0 -6px; }
+  }
+
+  /* ── RIPPLES ────────────────────────────────────────────────
+     Expanding circular rings — like raindrops on water. Sparse,
+     scattered, very slow. Uses brand-vivid at low opacity. */
+  .hero-ripples {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .ripple {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(45, 90, 123, 0.35);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    animation: rippleOut 7s ease-out infinite;
+    will-change: transform, opacity;
+  }
+  .ripple::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(58, 124, 165, 0.25);
+    animation: rippleOut 7s ease-out 0.6s infinite;
+  }
+  @keyframes rippleOut {
+    0%   { transform: translate(-50%, -50%) scale(0);  opacity: 0; }
+    10%  { opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(14); opacity: 0; }
+  }
+  .ripple-1 { left: 18%; top: 72%; animation-delay: 0s;   }
+  .ripple-2 { left: 72%; top: 65%; animation-delay: 2.3s; }
+  .ripple-3 { left: 42%; top: 85%; animation-delay: 4.1s; }
+  .ripple-4 { left: 88%; top: 80%; animation-delay: 1.4s; }
+  .ripple-5 { left: 8%;  top: 88%; animation-delay: 5.5s; }
+  .ripple-6 { left: 58%; top: 78%; animation-delay: 3.2s; }
 
   /* Light sheen — diagonal beam that sweeps across every ~10s */
   .hero-sheen {
@@ -1352,6 +1404,27 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
 <section class="hero">
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-sheen" aria-hidden="true"></div>
+
+  <div class="hero-waves" aria-hidden="true">
+    <svg class="hero-wave-3" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 C160,80 320,160 480,120 C640,80 800,160 960,120 C1120,80 1280,160 1440,120 L1440,200 L0,200 Z" fill="#7c95ad"/>
+    </svg>
+    <svg class="hero-wave-2" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,140 C180,100 360,180 540,140 C720,100 900,180 1080,140 C1260,100 1440,180 1440,140 L1440,200 L0,200 Z" fill="#9aabbf"/>
+    </svg>
+    <svg class="hero-wave-1" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,160 C200,130 400,190 600,160 C800,130 1000,190 1200,160 C1320,140 1440,180 1440,170 L1440,200 L0,200 Z" fill="#b9c4d2"/>
+    </svg>
+  </div>
+
+  <div class="hero-ripples" aria-hidden="true">
+    <span class="ripple ripple-1"></span>
+    <span class="ripple ripple-2"></span>
+    <span class="ripple ripple-3"></span>
+    <span class="ripple ripple-4"></span>
+    <span class="ripple ripple-5"></span>
+    <span class="ripple ripple-6"></span>
+  </div>
   <div class="hero-content">
     <h1>Creator sourcing & AI visibility for scaling DTC brands</h1>
   </div>
