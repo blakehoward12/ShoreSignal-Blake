@@ -1033,6 +1033,162 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     margin-top: 12px;
     min-height: 18px;
   }
+
+  /* ── POLISH: motion + micro-interactions ───────────────────── */
+
+  /* Hero gradient breathing */
+  .hero {
+    background-size: 200% 200%;
+    animation: heroDrift 22s ease-in-out infinite;
+  }
+  @keyframes heroDrift {
+    0%, 100% { background-position: 0% 0%; }
+    50%      { background-position: 100% 50%; }
+  }
+  .hero::before {
+    animation: heroGlow 14s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow {
+    0%   { opacity: 0.85; transform: translate3d(0, 0, 0) scale(1); }
+    100% { opacity: 1;    transform: translate3d(-2%, 1%, 0) scale(1.05); }
+  }
+
+  /* Hero load-in reveal (blur + lift + fade, staggered) */
+  .hero h1,
+  .hero-intro-label,
+  .hero-intro-text,
+  .hero-platforms,
+  #hero-form-wrapper,
+  .form-note {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(14px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-in .hero h1            { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.05s; }
+  .hero-in .hero-intro-label   { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.30s; }
+  .hero-in .hero-intro-text    { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.40s; }
+  .hero-in .hero-platforms     { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.30s; }
+  .hero-in #hero-form-wrapper  { opacity: 1; filter: blur(0); transform: none; transition-delay: 0.45s; }
+  .hero-in .form-note          { opacity: 0.8; filter: blur(0); transform: none; transition-delay: 0.6s; }
+
+  /* Scroll reveal — opt-in via .reveal */
+  .reveal {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--reveal-delay, 0) * 80ms);
+    will-change: opacity, transform, filter;
+  }
+  .reveal.in {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+
+  /* Service / pricing cards: lift on hover */
+  .service-card {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.35s ease,
+                border-color 0.35s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(17,17,17,0.06), 0 2px 6px rgba(17,17,17,0.04);
+  }
+
+  /* Hero platform icons: gentle float */
+  .hero-platform-icon {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-platform-icon:nth-child(1) { animation: floatA 6s ease-in-out infinite; }
+  .hero-platform-icon:nth-child(2) { animation: floatA 6s ease-in-out infinite -2s; }
+  .hero-platform-icon:nth-child(3) { animation: floatA 6s ease-in-out infinite -4s; }
+  @keyframes floatA {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+  }
+  .hero-platform-icons:hover .hero-platform-icon { transform: translateY(-2px); }
+
+  /* Buttons: shine sweep on primary CTAs */
+  .nav-cta,
+  .email-form button,
+  .ss-btn-primary {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .nav-cta::after,
+  .email-form button::after,
+  .ss-btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+      transparent 30%,
+      rgba(255,255,255,0.35) 50%,
+      transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .nav-cta:hover::after,
+  .email-form button:hover::after,
+  .ss-btn-primary:hover::after {
+    transform: translateX(120%);
+  }
+  .nav-cta > *,
+  .email-form button > *,
+  .ss-btn-primary > * { position: relative; z-index: 2; }
+
+  /* Email form: glow pulse on focus */
+  .email-form:focus-within {
+    transform: translateY(-1px);
+    transition: transform 0.25s ease, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  /* Success modal: bounce in the check */
+  .ss-modal-backdrop.show .ss-modal-check {
+    animation: checkPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+  }
+  @keyframes checkPop {
+    0%   { transform: scale(0.4); opacity: 0; }
+    60%  { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Nav: subtle scrolled state */
+  nav {
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  nav.is-scrolled {
+    background: rgba(250,250,249,0.95);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    .hero h1, .hero-intro-label, .hero-intro-text, .hero-platforms,
+    #hero-form-wrapper, .form-note, .reveal {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1396,6 +1552,81 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
       window.open(CALENDLY_URL, '_blank', 'noopener');
     }
   });
+
+  // ── Motion polish ─────────────────────────────────────────
+  // Hero load reveal — trigger after first paint.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => document.body.classList.add('hero-in'));
+  });
+
+  // Tag content sections for scroll reveal (no markup changes needed).
+  const revealSelectors = [
+    '.services-overview .section-label',
+    '.services-overview .section-title',
+    '.services-overview .section-subtitle',
+    '.service-card',
+    '.steps-section .section-label',
+    '.steps-section .section-title',
+    '.step',
+    '.ai-section .section-label',
+    '.ai-section .section-title',
+    '.ai-section .section-subtitle',
+    '.ai-list-item',
+    '.pricing-section .section-label',
+    '.pricing-section .section-title',
+    '.pricing-card',
+    '.pricing-note',
+    '.cta-title',
+    '.cta-sub',
+    '#cta-form-wrapper',
+    'footer .foot-brand',
+    'footer .foot-contact',
+    'footer .foot-tag',
+  ];
+  const allTargets = [];
+  revealSelectors.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      el.classList.add('reveal');
+      allTargets.push(el);
+    });
+  });
+
+  // Group-aware stagger: items inside the same parent get incremental delays.
+  const counters = new WeakMap();
+  allTargets.forEach((el) => {
+    const parent = el.parentElement;
+    const i = counters.get(parent) || 0;
+    el.style.setProperty('--reveal-delay', String(Math.min(i, 6)));
+    counters.set(parent, i + 1);
+  });
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+    allTargets.forEach((el) => io.observe(el));
+  } else {
+    allTargets.forEach((el) => el.classList.add('in'));
+  }
+
+  // Nav: add scrolled state after a tiny scroll for a soft drop shadow.
+  const navEl = document.querySelector('nav');
+  if (navEl) {
+    const onScroll = () => {
+      if (window.scrollY > 8) navEl.classList.add('is-scrolled');
+      else navEl.classList.remove('is-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   document.querySelectorAll('.email-form').forEach((form) => {
     form.addEventListener('submit', async function (e) {
