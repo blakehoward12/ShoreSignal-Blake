@@ -3,728 +3,833 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shore Signal — AI Visibility for Beach Town Businesses</title>
-<meta name="description" content="Shore Signal is the AI visibility agency for beach town businesses on Florida's 30A. We make sure ChatGPT, Perplexity, and Google AI recommend your restaurant, rental, spa, or shop to every tourist searching.">
-<link rel="canonical" href="https://www.shoresignalagency.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shore Signal — AI Visibility for Beach Town Businesses">
-<meta property="og:description" content="When tourists ask AI where to eat, stay, or book on 30A — we make sure it says your name. AI visibility tracking, optimization, and strategy for local businesses.">
-<meta property="og:url" content="https://www.shoresignalagency.com/">
-<meta property="og:site_name" content="Shore Signal">
-<meta property="og:image" content="https://www.shoresignalagency.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shore Signal — AI Visibility for Beach Town Businesses">
-<meta name="twitter:description" content="When tourists ask AI where to eat, stay, or book on 30A — we make sure it says your name.">
-<meta name="twitter:image" content="https://www.shoresignalagency.com/og-image.png">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<title>Shore Signal — Creator Sourcing & AI Visibility</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" as="style">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1459427022141284');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   :root {
-    --teal:   #1A6B72;
-    --teald:  #0D4448;
-    --tealx:  #071f22;
-    --teall:  #2A8A93;
-    --tealp:  #0f5459;
-    --sand:   #F0E6CC;
-    --sandl:  #FBF7EE;
-    --cream:  #FDFAF4;
-    --dark:   #111C1E;
-    --gray:   #5A6B6D;
-    --grayl:  #A8B8BA;
-    --orange: #C17F3B;
-    --light:  #EBF5F6;
-    --white:  #ffffff;
+    --black: #111111;
+    --dark: #1a1a1a;
+    --mid: #555555;
+    --gray: #888888;
+    --light: #bbbbbb;
+    --border: #e5e5e5;
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --accent: #111111;
+    --accent-hover: #333333;
+    --brand: #2d5a7b;
+    --brand-light: rgba(45,90,123,0.07);
+    --brand-mid: rgba(45,90,123,0.15);
+    --brand-vivid: #3a7ca5;
+    --warm: #c8956a;
+    --warm-light: rgba(200,149,106,0.08);
+    --warm-mid: rgba(200,149,106,0.15);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--cream);
-    color: var(--dark);
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--black);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  /* ── NAV ─────────────────────────────────── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 0 60px;
-    height: 64px;
+    padding: 0 80px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(7, 31, 34, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(250,250,249,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
   }
+
   .nav-brand {
-    font-family: 'Lora', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
     text-decoration: none;
+    letter-spacing: -0.02em;
   }
-  .nav-brand em { font-style: italic; color: rgba(240,230,204,0.85); }
+
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 40px;
     list-style: none;
   }
   .nav-links a {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.55);
+    color: var(--mid);
     text-decoration: none;
-    text-transform: uppercase;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: rgba(255,255,255,0.9); }
-  .nav-cta {
-    background: var(--orange) !important;
-    color: white !important;
-    padding: 9px 20px;
-    border-radius: 100px;
-    letter-spacing: 0.04em !important;
-    text-transform: none !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    transition: opacity 0.2s !important;
-  }
-  .nav-cta:hover { opacity: 0.88 !important; }
+  .nav-links a:hover { color: var(--black); }
 
-  /* ── HERO ────────────────────────────────── */
+  .nav-cta {
+    background: var(--accent) !important;
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-cta:hover { background: var(--accent-hover) !important; }
+  .nav-cta svg { transition: transform 0.2s; }
+  .nav-cta:hover svg { transform: translateX(2px); }
+
   .hero {
     min-height: 100vh;
-    background: linear-gradient(155deg, #071f22 0%, #0D4448 45%, #0f5459 75%, #071f22 100%);
+    background: linear-gradient(160deg, #f0eeeb 0%, #e8e4e0 20%, #d8d4d0 40%, #cdd0d6 60%, #c4cad4 80%, #d0d4da 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 60px 80px;
+    justify-content: space-between;
+    padding: 160px 80px 80px;
     position: relative;
     overflow: hidden;
-    text-align: center;
   }
 
-  /* dot grid */
   .hero::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.065) 1px, transparent 1px);
-    background-size: 28px 28px;
-    pointer-events: none;
-  }
-
-  /* glow */
-  .hero-glow1 {
-    position: absolute;
-    top: -80px; right: -60px;
-    width: 560px; height: 560px;
-    background: radial-gradient(circle, rgba(42,138,147,0.22) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .hero-glow2 {
-    position: absolute;
-    bottom: -60px; left: -40px;
-    width: 380px; height: 380px;
-    background: radial-gradient(circle, rgba(193,127,59,0.1) 0%, transparent 65%);
-    pointer-events: none;
-  }
-
-  /* diagonal lines */
-  .hero-lines {
-    position: absolute;
-    top: 0; right: 0;
-    width: 420px; height: 420px;
-    opacity: 0.05;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 70%, rgba(180,190,210,0.3) 0%, transparent 60%);
     pointer-events: none;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 720px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 900px;
   }
 
-  .hero-eyebrow {
-    font-size: 10px;
+  .hero h1 {
+    font-size: clamp(52px, 7.5vw, 96px);
     font-weight: 500;
-    letter-spacing: 0.28em;
-    color: rgba(160,220,225,0.7);
-    text-transform: uppercase;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--black);
+  }
+
+  .hero-bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 120px;
+  }
+
+  .hero-intro { max-width: 420px; }
+  .hero-intro-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 10px;
+  }
+  .hero-intro-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .hero-platforms {
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 32px;
-    animation: fadeUp 0.8s ease both;
   }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 28px; height: 1px;
-    background: rgba(160,220,225,0.5);
+  .hero-platform-icons {
+    display: flex;
+    gap: 8px;
   }
-  .hero-eyebrow::after {
-    content: '';
-    display: inline-block;
-    width: 28px; height: 1px;
-    background: rgba(160,220,225,0.5);
-  }
-
-  h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(80px, 12vw, 120px);
-    font-weight: 400;
-    line-height: 0.88;
-    color: white;
-    margin-bottom: 36px;
-    animation: fadeUp 0.8s 0.1s ease both;
-  }
-  h1 em { font-style: italic; color: rgba(240,230,204,0.9); }
-
-  .hero-tagline {
-    font-size: 18px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.55);
-    max-width: 500px;
-    line-height: 1.75;
-    margin-bottom: 52px;
-    animation: fadeUp 0.8s 0.2s ease both;
-  }
-
-  .hero-actions {
+  .hero-platform-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    animation: fadeUp 0.8s 0.3s ease both;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
+  .hero-platform-text {
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 16px 36px;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
+    color: var(--black);
+    line-height: 1.3;
   }
-  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
-  .btn-ghost {
+  .btn-hero {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .btn-ghost:hover { color: rgba(255,255,255,0.9); }
-  .btn-ghost svg { transition: transform 0.2s; }
-  .btn-ghost:hover svg { transform: translateX(3px); }
-
-  /* compass SVG */
-  .hero-compass {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.07;
-    z-index: 1;
-    animation: spin 120s linear infinite;
-    pointer-events: none;
-  }
-  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── URGENCY STRIP ───────────────────────── */
-  .urgency {
-    background: var(--sand);
-    padding: 24px 60px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-bottom: 1px solid rgba(193,127,59,0.2);
-  }
-  .urgency-icon svg { flex-shrink: 0; }
-  .urgency-text { flex: 1; }
-  .urgency-headline {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--orange);
-    line-height: 1.1;
-    margin-bottom: 3px;
-  }
-  .urgency-body {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--dark);
-    line-height: 1.45;
-  }
-  .urgency-pill {
-    background: var(--orange);
+    gap: 10px;
+    background: var(--brand-vivid);
     color: white;
-    font-size: 9px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    padding: 10px 18px;
+    padding: 18px 40px;
     border-radius: 100px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    flex-shrink: 0;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(45,90,123,0.3);
   }
+  .btn-hero:hover { background: var(--brand); transform: translateY(-1px); }
 
-  /* ── SECTIONS SHARED ─────────────────────── */
-  section { padding: 96px 60px; }
-  section + section { border-top: 1px solid rgba(26,107,114,0.1); }
+  section { padding: 120px 80px; }
 
   .section-label {
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.24em;
-    color: var(--teall);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 180px;
-    height: 1px;
-    background: linear-gradient(to right, rgba(42,138,147,0.35), transparent);
+    color: var(--brand);
+    margin-bottom: 20px;
   }
 
-  h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(32px, 4vw, 46px);
-    font-weight: 400;
+  .section-title {
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
     line-height: 1.1;
-    color: var(--teald);
+    color: var(--black);
     margin-bottom: 16px;
   }
-  h2 em { font-style: italic; color: var(--orange); }
 
-  .section-lead {
-    font-size: 15px;
+  .section-subtitle {
+    font-size: 17px;
     font-weight: 400;
-    color: var(--gray);
+    color: var(--mid);
     line-height: 1.7;
-    max-width: 580px;
-    margin-bottom: 52px;
+    max-width: 560px;
+    margin-bottom: 64px;
   }
 
-  /* ── THE SHIFT GRID ──────────────────────── */
-  .shift { background: white; }
+  .services-overview {
+    background: white;
+    border-top: 1px solid var(--border);
+  }
 
-  .shift-grid {
+  .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4px;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 1000px;
+  }
+
+  .service-card {
+    background: white;
+    padding: 56px 48px;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: #fafafa; }
+
+  .service-num {
+    font-size: 72px;
+    font-weight: 800;
+    color: rgba(0,0,0,0.04);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.04em;
+  }
+
+  .service-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .service-badge-primary { background: var(--brand); color: white; }
+  .service-badge-secondary { background: var(--warm-light); color: var(--warm); }
+
+  .service-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 14px;
+  }
+
+  .service-desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sf {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .sf-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sf-dot-dark { background: var(--brand); }
+  .sf-dot-warm { background: var(--warm); }
+
+  .cs-section {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .cs-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    max-width: 1000px;
+  }
+
+  .cs-step-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--brand) 0%, var(--border) 100%);
+    margin-bottom: 32px;
+  }
+  .cs-step:nth-child(2) .cs-step-line {
+    background: linear-gradient(to right, var(--brand-vivid) 0%, var(--border) 100%);
+  }
+  .cs-step:nth-child(3) .cs-step-line {
+    background: linear-gradient(to right, var(--warm) 0%, var(--border) 100%);
+  }
+
+  .cs-step-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 14px;
+  }
+
+  .cs-step-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .cs-step-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .cs-step-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  .cs-tag-us { background: var(--brand); color: white; }
+  .cs-tag-you { background: var(--warm-light); color: var(--warm); border: 1px solid var(--warm-mid); }
+
+  .ai-section {
+    background: #0f1f2b;
+    color: white;
+    border-top: none;
+  }
+  .ai-section .section-label { color: rgba(255,255,255,0.4); }
+  .ai-section .section-title { color: white; }
+  .ai-section .section-subtitle { color: rgba(255,255,255,0.5); }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 1000px;
     border-radius: 16px;
     overflow: hidden;
   }
 
-  .sc {
-    padding: 40px 44px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .ai-card {
+    background: rgba(255,255,255,0.05);
+    padding: 40px 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
   }
-  .sc-1 { background: var(--teald); }
-  .sc-2 { background: var(--teal); }
-  .sc-3 { background: var(--sandl); }
-  .sc-4 { background: var(--sand); }
+  .ai-card:hover { background: rgba(255,255,255,0.08); }
+  .ai-card:nth-child(1) { border-radius: 16px 0 0 0; }
+  .ai-card:nth-child(2) { border-radius: 0 16px 0 0; }
+  .ai-card:nth-child(3) { border-radius: 0 0 0 16px; }
+  .ai-card:nth-child(4) { border-radius: 0 0 16px 0; }
 
-  .sc-icon { margin-bottom: 4px; }
-
-  .sc-yr {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-  .sc-1 .sc-yr, .sc-2 .sc-yr { color: rgba(255,255,255,0.45); }
-  .sc-3 .sc-yr, .sc-4 .sc-yr { color: var(--teall); }
-
-  .sc-h {
-    font-family: 'Lora', serif;
-    font-size: 24px;
+  .ai-card-title {
+    font-size: 16px;
     font-weight: 700;
-  }
-  .sc-1 .sc-h, .sc-2 .sc-h { color: white; }
-  .sc-3 .sc-h, .sc-4 .sc-h { color: var(--teald); }
-
-  .sc-b {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.72;
-  }
-  .sc-1 .sc-b, .sc-2 .sc-b { color: rgba(255,255,255,0.62); }
-  .sc-3 .sc-b, .sc-4 .sc-b { color: var(--gray); }
-
-  /* ── SERVICES ────────────────────────────── */
-  .services-section { background: var(--cream); }
-
-  .services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    max-width: 860px;
-  }
-
-  .svc {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(26,107,114,0.08);
-    background: white;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .svc:hover { transform: translateX(4px); box-shadow: 0 4px 24px rgba(26,107,114,0.1); }
-  .svc:nth-child(even) .svc-ico { background: var(--teald); }
-  .svc-ico {
-    background: var(--teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .svc-body { padding: 18px 24px; }
-  .svc-t {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--teald);
-    margin-bottom: 4px;
-  }
-  .svc-d {
-    font-size: 12.5px;
-    font-weight: 400;
-    color: var(--gray);
-    line-height: 1.55;
-  }
-
-  /* ── INDUSTRIES ──────────────────────────── */
-  .industries-section { background: white; }
-
-  .industries-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .ind-card {
-    background: var(--light);
-    border-radius: 14px;
-    padding: 28px 24px;
-    border: 1px solid rgba(26,107,114,0.07);
-    transition: transform 0.2s, background 0.2s;
-    cursor: default;
-  }
-  .ind-card:hover {
-    transform: translateY(-3px);
-    background: white;
-    box-shadow: 0 8px 32px rgba(26,107,114,0.1);
-  }
-  .ind-icon { margin-bottom: 14px; }
-  .ind-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--teald);
+    color: white;
     margin-bottom: 8px;
   }
-  .ind-desc {
-    font-size: 12.5px;
+
+  .ai-card-desc {
+    font-size: 14px;
     font-weight: 400;
-    color: var(--gray);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
   }
 
-  /* ── PRICING ─────────────────────────────── */
-  .pricing-section { background: var(--cream); }
+  .pricing-section {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .pricing-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    margin-top: 8px;
+  }
+  .pricing-label:not(:first-of-type) { margin-top: 48px; }
+
+  .pl-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .pl-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+
+  .pl-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
   .pricing-grid {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    max-width: 1000px;
+    margin-bottom: 48px;
+  }
+  .pricing-grid-2 {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 900px;
+    max-width: 660px;
   }
 
-  .pc {
-    border-radius: 20px;
+  .price-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
     overflow: hidden;
-    border: 1px solid rgba(26,107,114,0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .pc:hover { transform: translateY(-4px); }
-  .pc.feat { border-color: transparent; }
-
-  .ph { padding: 32px 32px 24px; background: var(--light); }
-  .pc.feat .ph { background: var(--teal); }
-
-  .p-tier {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 10px;
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
   }
-  .pc.feat .p-tier { color: rgba(255,255,255,0.55); }
+  .price-card.featured {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 1px var(--brand);
+  }
 
-  .p-amt {
-    font-family: 'Lora', serif;
-    font-size: 60px;
+  .price-head { padding: 32px 28px 24px; }
+  .price-card.featured .price-head { background: var(--brand); }
+
+  .price-tier {
+    font-size: 11px;
     font-weight: 700;
-    line-height: 1;
-    color: var(--teald);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 12px;
   }
-  .pc.feat .p-amt { color: white; }
+  .price-card.featured .price-tier { color: rgba(255,255,255,0.45); }
 
-  .p-per {
-    font-size: 12px;
+  .price-amt {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--black);
+  }
+  .price-card.featured .price-amt { color: white; }
+
+  .price-per {
+    font-size: 13px;
     font-weight: 400;
     color: var(--gray);
     margin-top: 4px;
   }
-  .pc.feat .p-per { color: rgba(255,255,255,0.5); }
+  .price-card.featured .price-per { color: rgba(255,255,255,0.4); }
 
-  .pfs {
-    padding: 20px 32px 28px;
-    background: white;
+  .price-body {
+    padding: 20px 28px 28px;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  .pc.feat .pfs { background: var(--teald); }
+  .price-card.featured .price-body { background: #1e3d52; }
 
-  .pf {
+  .price-feat {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     font-size: 13px;
     font-weight: 400;
-    color: var(--dark);
+    color: var(--mid);
     line-height: 1.45;
   }
-  .pc.feat .pf { color: rgba(255,255,255,0.78); }
+  .price-card.featured .price-feat { color: rgba(255,255,255,0.6); }
 
-  .pck {
-    width: 17px; height: 17px;
+  .price-check {
+    width: 16px; height: 16px;
     border-radius: 50%;
-    background: var(--teal);
+    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     margin-top: 1px;
-    font-size: 10px;
-    color: white;
-    font-weight: 700;
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--mid);
   }
-  .pc.feat .pck { background: var(--orange); }
+  .price-card.featured .price-check {
+    background: rgba(255,255,255,0.1);
+    color: white;
+  }
+
+  .price-card-contact {
+    background: white;
+    border-radius: 16px;
+    border: 2px dashed var(--border);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .price-card-contact:hover { border-color: var(--light); }
+
+  .price-contact-amt {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .price-contact-sub {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .btn-outline-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--black);
+    border: 1px solid var(--border);
+    padding: 10px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline-sm:hover { background: var(--black); color: white; border-color: var(--black); }
+
+  .bundle {
+    max-width: 1000px;
+    border-radius: 20px;
+    padding: 48px 52px;
+    background: white;
+    border: 2px solid var(--brand);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .bundle-left { max-width: 500px; }
+
+  .bundle-badge {
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+
+  .bundle-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .bundle-desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .bundle-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .bundle-example { text-align: right; }
+
+  .bundle-ex-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .bundle-ex-price {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+  .bundle-ex-price .strike {
+    text-decoration: line-through;
+    color: var(--light);
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 8px;
+  }
+
+  .bundle-ex-detail {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
 
   .pricing-note {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--grayl);
-    text-align: center;
-    margin-top: 20px;
-    max-width: 860px;
-  }
-
-  /* ── HOW IT STARTS ───────────────────────── */
-  .steps-section { background: white; }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: 1fr 48px 1fr;
-    align-items: center;
-    gap: 0;
-    max-width: 860px;
-  }
-
-  .step {
-    background: var(--teald);
-    border-radius: 18px;
-    padding: 40px 36px;
-    text-align: center;
-  }
-  .step:last-child { background: var(--teal); }
-  .step-num {
-    font-family: 'Lora', serif;
-    font-size: 64px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.07);
-    line-height: 1;
-    margin-bottom: -10px;
-    display: block;
-  }
-  .step-ico { margin: 12px auto 14px; }
-  .step-title {
-    font-family: 'Lora', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-  }
-  .step-desc {
     font-size: 13px;
     font-weight: 400;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.65;
-  }
-  .step-arr {
+    color: var(--light);
     text-align: center;
-    font-size: 24px;
-    color: rgba(26,107,114,0.3);
+    margin-top: 32px;
+    max-width: 1000px;
   }
 
-  /* ── CTA ─────────────────────────────────── */
   .cta-section {
-    background: var(--tealx);
-    padding: 120px 60px;
+    background: #0f1f2b;
+    padding: 140px 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top: none;
   }
+
   .cta-section::before {
     content: '';
     position: absolute;
-    top: -80px; left: 50%;
+    top: -120px; left: 50%;
     transform: translateX(-50%);
-    width: 600px; height: 300px;
-    background: radial-gradient(ellipse, rgba(42,138,147,0.22) 0%, transparent 70%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(45,90,123,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  .cta-section h2 {
-    font-family: 'Lora', serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 400;
+
+  .cta-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
     color: white;
-    line-height: 1.25;
-    margin-bottom: 16px;
+    line-height: 1.1;
+    margin-bottom: 20px;
     position: relative;
   }
-  .cta-section h2 em { font-style: italic; color: var(--sand); }
-  .cta-section p {
-    font-size: 15px;
+
+  .cta-sub {
+    font-size: 16px;
     font-weight: 400;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.4);
     margin-bottom: 48px;
     position: relative;
-    line-height: 1.65;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .cta-actions {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     position: relative;
   }
-  .btn-sand {
-    background: var(--orange);
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 18px 44px;
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--black);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 18px 40px;
     border-radius: 100px;
     text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
-    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .btn-sand:hover { opacity: 0.9; transform: translateY(-2px); }
-  .btn-ghost-light {
-    color: rgba(255,255,255,0.55);
-    font-size: 14px;
+  .btn-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255,255,255,0.15);
+  }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 15px;
     font-weight: 500;
     text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.15);
     padding: 17px 36px;
     border-radius: 100px;
     transition: color 0.2s, border-color 0.2s;
-    display: inline-block;
   }
-  .btn-ghost-light:hover { color: white; border-color: rgba(255,255,255,0.45); }
+  .btn-cta-ghost:hover { color: white; border-color: rgba(255,255,255,0.4); }
 
-  /* ── FOOTER ──────────────────────────────── */
   footer {
-    background: #040e0f;
-    padding: 48px 60px;
+    background: #0a0a0a;
+    padding: 48px 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
-  }
-  .foot-brand {
-    font-family: 'Lora', serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: white;
-  }
-  .foot-brand em { font-style: italic; color: rgba(240,230,204,0.7); }
-  .foot-contact {
-    font-size: 12.5px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-    line-height: 1.9;
-  }
-  .foot-contact a { color: rgba(160,220,225,0.65); text-decoration: none; }
-  .foot-contact a:hover { color: rgba(160,220,225,1); }
-  .foot-tag {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    color: rgba(255,255,255,0.18);
-    text-transform: uppercase;
-    text-align: right;
-    line-height: 1.8;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  /* ── RESPONSIVE ──────────────────────────── */
+  .foot-brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+
+  .foot-contact {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    line-height: 1.8;
+  }
+  .foot-contact a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .foot-contact a:hover { color: white; }
+
+  .foot-tag {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.15);
+    text-align: right;
+  }
+
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-compass { display: none; }
-    .urgency { padding: 20px 24px; flex-wrap: wrap; }
-    section { padding: 72px 24px; }
-    .shift-grid { grid-template-columns: 1fr; }
-    .industries-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 120px 24px 60px; }
+    .hero-bottom { flex-direction: column; gap: 40px; align-items: flex-start; }
+    .hero-right { align-items: flex-start; }
+    section { padding: 80px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .cs-steps { grid-template-columns: 1fr; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .ai-card { border-radius: 0 !important; }
+    .ai-card:first-child { border-radius: 16px 16px 0 0 !important; }
+    .ai-card:last-child { border-radius: 0 0 16px 16px !important; }
     .pricing-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .step-arr { transform: rotate(90deg); }
+    .pricing-grid-2 { grid-template-columns: 1fr; max-width: 100%; }
+    .bundle { flex-direction: column; padding: 36px 28px; }
+    .bundle-right { align-items: flex-start; }
+    .bundle-example { text-align: left; }
     .cta-section { padding: 80px 24px; }
     .cta-actions { flex-direction: column; }
     footer { padding: 40px 24px; flex-direction: column; text-align: center; }
@@ -732,422 +837,619 @@
   }
 
   @media (max-width: 600px) {
-    h1 { font-size: 56px; }
-    .industries-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; }
+    .section-title { font-size: 30px; }
+    .service-card { padding: 36px 28px; }
+  }
+  /* ── EMAIL CAPTURE FORM ────────────────── */
+  .email-form {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 2px solid rgba(0,0,0,0.1);
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .email-form:focus-within {
+    border-color: var(--brand);
+    box-shadow: 0 4px 24px rgba(45,90,123,0.15);
   }
 
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 16px;
-    z-index: 200;
-    background: var(--orange);
+  .email-form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 18px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--black);
+    background: transparent;
+    min-width: 0;
+  }
+  .email-form input::placeholder { color: var(--light); }
+
+  .email-form button {
+    border: none;
+    background: var(--brand-vivid);
     color: white;
-    padding: 12px 24px;
-    border-radius: 0 0 8px 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    text-decoration: none;
-    transition: top 0.2s;
+    padding: 18px 32px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
   }
-  .skip-link:focus {
-    top: 0;
+  .email-form button:hover { background: var(--brand); }
+
+  .email-form-dark {
+    border-color: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+  }
+  .email-form-dark:focus-within {
+    border-color: var(--brand-vivid);
+    box-shadow: 0 4px 24px rgba(45,90,123,0.25);
+  }
+  .email-form-dark input {
+    color: white;
+  }
+  .email-form-dark input::placeholder { color: rgba(255,255,255,0.3); }
+
+  .form-note {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+  .form-note-light {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 20px;
+  }
+  .form-success.show { display: block; }
+  .form-success-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+  .form-success-sub {
+    font-size: 13px;
+    color: var(--mid);
+  }
+  .form-success-light .form-success-text { color: var(--brand-vivid); }
+  .form-success-light .form-success-sub { color: rgba(255,255,255,0.45); }
+
+  @media (max-width: 600px) {
+    .email-form {
+      flex-direction: column;
+      border-radius: 16px;
+    }
+    .email-form button {
+      justify-content: center;
+      border-radius: 0 0 14px 14px;
+    }
+  }
+
+  /* ── SUCCESS MODAL ────────────────── */
+  .ss-modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(17,17,17,0.55);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .ss-modal-backdrop.show { display: flex; opacity: 1; }
+  .ss-modal {
+    background: var(--card);
+    border-radius: 24px;
+    max-width: 520px;
+    width: 100%;
+    padding: 48px 40px 40px;
+    text-align: center;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    position: relative;
+    transform: translateY(12px);
+    transition: transform 0.25s ease;
+  }
+  .ss-modal-backdrop.show .ss-modal { transform: translateY(0); }
+  .ss-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 36px; height: 36px;
+    border: none; background: transparent;
+    cursor: pointer; border-radius: 50%;
+    color: var(--gray); font-size: 22px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .ss-modal-close:hover { background: var(--border); color: var(--black); }
+  .ss-modal-check {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--brand-light);
+    color: var(--brand);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .ss-modal h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--black);
+  }
+  .ss-modal p {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .ss-modal-actions {
+    display: flex; flex-direction: column; gap: 12px;
+    align-items: stretch;
+  }
+  .ss-btn-primary {
+    background: var(--brand-vivid);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 16px 28px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background 0.2s;
+  }
+  .ss-btn-primary:hover { background: var(--brand); }
+  .ss-btn-secondary {
+    background: transparent;
+    color: var(--mid);
+    border: none;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .ss-btn-secondary:hover { color: var(--black); }
+  .ss-modal-error {
+    color: #b00020;
+    font-size: 13px;
+    margin-top: 12px;
+    min-height: 18px;
   }
 </style>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- ── NAV ──────────────────────────────────────────────────────────── -->
 <nav>
-  <a href="#" class="nav-brand">Shore <em>Signal.</em></a>
+  <a href="#" class="nav-brand">Shore Signal</a>
   <ul class="nav-links">
+    <li><a href="#services">What We Do</a></li>
     <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#industries">Industries</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="mailto:blake@shoresignalagency.com?subject=Free AI Visibility Report — Request&body=Hi there,%0D%0A%0D%0AI'd like to request a free AI Visibility Snapshot for my business.%0D%0A%0D%0A--- My Business Info ---%0D%0A%0D%0ABusiness name:%0D%0AIndustry (restaurant, rental, spa, charter, hotel, etc.):%0D%0AWebsite:%0D%0ALocation on 30A:%0D%0ABest number to reach me:%0D%0A%0D%0A--- Optional ---%0D%0A%0D%0AWhat's your biggest concern about AI visibility right now?%0D%0A%0D%0ALooking forward to hearing from you." class="nav-cta">Get Free Report</a></li>
   </ul>
+  <a href="#get-started" class="nav-cta">
+    Get Started
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────────────────── -->
-<main id="main-content">
-<section class="hero" id="top">
-  <div class="hero-glow1"></div>
-  <div class="hero-glow2"></div>
-
-  <!-- diagonal lines -->
-  <svg class="hero-lines" viewBox="0 0 420 420">
-    <line x1="420" y1="0" x2="0" y2="420" stroke="white" stroke-width="1"/>
-    <line x1="420" y1="80" x2="80" y2="420" stroke="white" stroke-width="0.7"/>
-    <line x1="420" y1="160" x2="160" y2="420" stroke="white" stroke-width="0.5"/>
-    <circle cx="330" cy="100" r="80" stroke="white" stroke-width="0.5" fill="none"/>
-    <circle cx="330" cy="100" r="130" stroke="white" stroke-width="0.35" fill="none"/>
-  </svg>
-
-  <!-- spinning compass -->
-  <svg class="hero-compass" width="380" height="380" viewBox="0 0 260 260">
-    <circle cx="130" cy="130" r="50" stroke="white" stroke-width="1.5" fill="none"/>
-    <circle cx="130" cy="130" r="85" stroke="white" stroke-width="1" fill="none"/>
-    <circle cx="130" cy="130" r="122" stroke="white" stroke-width="0.6" fill="none"/>
-    <line x1="130" y1="0" x2="130" y2="260" stroke="white" stroke-width="0.5"/>
-    <line x1="0" y1="130" x2="260" y2="130" stroke="white" stroke-width="0.5"/>
-    <line x1="38" y1="38" x2="222" y2="222" stroke="white" stroke-width="0.35"/>
-    <line x1="222" y1="38" x2="38" y2="222" stroke="white" stroke-width="0.35"/>
-    <circle cx="130" cy="130" r="6" fill="white" opacity="0.7"/>
-    <path d="M100,130 Q130,100 160,130" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M78,130 Q130,72 182,130" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-    <path d="M56,130 Q130,44 204,130" stroke="white" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-  </svg>
-
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">AI Visibility Agency</div>
-    <h1>Shore<br><em>Signal.</em></h1>
-    <p class="hero-tagline">When tourists ask AI where to eat, stay, or book — we make sure it says your name.</p>
-    <div class="hero-actions">
-      <a href="mailto:blake@shoresignalagency.com?subject=Free AI Visibility Report — Request&body=Hi there,%0D%0A%0D%0AI'd like to request a free AI Visibility Snapshot for my business.%0D%0A%0D%0A--- My Business Info ---%0D%0A%0D%0ABusiness name:%0D%0AIndustry (restaurant, rental, spa, charter, hotel, etc.):%0D%0AWebsite:%0D%0ALocation on 30A:%0D%0ABest number to reach me:%0D%0A%0D%0A--- Optional ---%0D%0A%0D%0AWhat's your biggest concern about AI visibility right now?%0D%0A%0D%0ALooking forward to hearing from you." class="btn-primary">Get Your Free AI Report</a>
-      <a href="#getting-started" class="btn-ghost">
-        See how it works
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3,8 L13,8 M9,4 L13,8 L9,12" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <h1>Creator sourcing & AI visibility for scaling DTC brands</h1>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-intro">
+      <div class="hero-intro-label">Welcome to Shore Signal</div>
+      <div class="hero-intro-text">We find creators in your niche and handle outreach on your behalf — while making sure your brand shows up when consumers ask AI where to buy. Two services. One agency.</div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-platforms">
+        <div class="hero-platform-icons">
+          <div class="hero-platform-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="10" r="4" stroke="#111" stroke-width="1.5" fill="none"/><circle cx="13" cy="10" r="4" stroke="#111" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <div class="hero-platform-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#111" stroke-width="1.5" fill="none"/><circle cx="10" cy="10" r="4" stroke="#111" stroke-width="1.3" fill="none"/><circle cx="14.5" cy="5.5" r="1" fill="#111"/></svg>
+          </div>
+          <div class="hero-platform-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4,16 L4,8 L10,4 L16,8 L16,16" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M8,16 L8,12 L12,12 L12,16" stroke="#111" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="hero-platform-text">ChatGPT, Perplexity<br>& Google AI Coverage</div>
+      </div>
+      <div id="hero-form-wrapper">
+        <form class="email-form" id="hero-form" data-source="hero">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+        <div class="form-note">Free consultation. No commitment required.</div>
+      </div>
+      <div class="form-success" id="hero-success">
+        <div class="form-success-text">You're in.</div>
+        <div class="form-success-sub">We'll be in touch within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-overview" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Two services. One growth engine.</div>
+  <div class="section-subtitle">Most brands need both — creators to build trust and AI visibility to capture demand. We handle the heavy lifting on each.</div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-badge service-badge-primary">Primary Service</div>
+      <div class="service-title">Creator Sourcing</div>
+      <div class="service-desc">We find creators in your niche and reach out on your behalf with personalized introductions. You handle rates and relationships — we handle the sourcing and outreach so you never write another cold DM.</div>
+      <div class="service-features">
+        <div class="sf"><span class="sf-dot sf-dot-dark"></span>Creators matched to your brand, niche, and audience</div>
+        <div class="sf"><span class="sf-dot sf-dot-dark"></span>Personalized outreach sent on your behalf</div>
+        <div class="sf"><span class="sf-dot sf-dot-dark"></span>Interested creators delivered as warm introductions</div>
+        <div class="sf"><span class="sf-dot sf-dot-dark"></span>Scale from 50 to 200+ creators contacted per month</div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-badge service-badge-secondary">Complementary Service</div>
+      <div class="service-title">AI Visibility</div>
+      <div class="service-desc">When someone asks ChatGPT, Perplexity, or Google AI for product recommendations in your category, we make sure your brand is in the answer. Not your ad — your name, organically.</div>
+      <div class="service-features">
+        <div class="sf"><span class="sf-dot sf-dot-warm"></span>Monthly tracking across ChatGPT, Perplexity, Google AI</div>
+        <div class="sf"><span class="sf-dot sf-dot-warm"></span>Strategic placements where AI models learn</div>
+        <div class="sf"><span class="sf-dot sf-dot-warm"></span>Competitor monitoring and gap analysis</div>
+        <div class="sf"><span class="sf-dot sf-dot-warm"></span>Clear monthly reports showing where you stand</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" id="how-it-works">
+  <div class="section-label">Creator Sourcing</div>
+  <div class="section-title">How it works.</div>
+  <div class="section-subtitle">You stop spending hours scrolling platforms and writing cold DMs. We build your creator pipeline — sourcing and contacting creators so you only talk to the ones who are interested.</div>
+
+  <div class="cs-steps">
+    <div class="cs-step">
+      <div class="cs-step-line"></div>
+      <div class="cs-step-num">01</div>
+      <div class="cs-step-title">We Source</div>
+      <div class="cs-step-desc">Tell us your niche, your audience, and the kind of content you're after. We find creators who match — across Instagram, TikTok, YouTube, and emerging platforms.</div>
+      <div class="cs-step-tag cs-tag-us">We handle this</div>
+    </div>
+
+    <div class="cs-step">
+      <div class="cs-step-line"></div>
+      <div class="cs-step-num">02</div>
+      <div class="cs-step-title">We Reach Out</div>
+      <div class="cs-step-desc">We create personalized outreach messages for each creator and send them on your behalf. No templates. No spam. Real outreach that gets real responses.</div>
+      <div class="cs-step-tag cs-tag-us">We handle this</div>
+    </div>
+
+    <div class="cs-step">
+      <div class="cs-step-line"></div>
+      <div class="cs-step-num">03</div>
+      <div class="cs-step-title">You Close</div>
+      <div class="cs-step-desc">When a creator responds with interest, we hand you a warm introduction — ready for a conversation. You negotiate rates, scope, and deliverables directly. Your relationship from day one.</div>
+      <div class="cs-step-tag cs-tag-you">You handle this</div>
+    </div>
+  </div>
+</section>
+
+<section class="ai-section">
+  <div class="section-label">AI Visibility</div>
+  <div class="section-title">Be the answer, not the ad.</div>
+  <div class="section-subtitle">Consumers are asking AI for product recommendations before they ever open Google. We make sure your brand shows up in those answers — organically.</div>
+
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-card-title">AI Presence Tracking</div>
+      <div class="ai-card-desc">We monitor your brand across ChatGPT, Google AI, and Perplexity — and send clear monthly reports showing where you appear, where you don't, and how you compare to competitors.</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-title">Strategic Placements</div>
+      <div class="ai-card-desc">AI models learn from forums, editorial content, and community discussions — not your website. We build your presence in the places these models actually reference.</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-title">Competitor Intelligence</div>
+      <div class="ai-card-desc">Every month we track how often competitors appear in AI results vs. you. Wherever there's a gap, we close it before your customers notice.</div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-title">Presence Optimization</div>
+      <div class="ai-card-desc">We optimize your digital footprint so AI systems surface your brand accurately and consistently across every query your customers are running.</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <div class="section-title">Transparent. No contracts.</div>
+  <div class="section-subtitle">Pick one service or bundle both and save 15%. Every plan is month-to-month — we keep your business because we earn it.</div>
+
+  <div class="pricing-label">
+    <span class="pl-dot" style="background: var(--brand);"></span>
+    <span class="pl-text">Creator Sourcing</span>
+    <span class="pl-line"></span>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-head">
+        <div class="price-tier">Growth</div>
+        <div class="price-amt">$499</div>
+        <div class="price-per">per month · no contract</div>
+      </div>
+      <div class="price-body">
+        <div class="price-feat"><span class="price-check">✓</span>50 creators contacted per month</div>
+        <div class="price-feat"><span class="price-check">✓</span>Personalized outreach to each creator</div>
+        <div class="price-feat"><span class="price-check">✓</span>Warm introductions from interested creators</div>
+        <div class="price-feat"><span class="price-check">✓</span>Niche & audience matching</div>
+        <div class="price-feat"><span class="price-check">✓</span>Monthly sourcing report</div>
+      </div>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-head">
+        <div class="price-tier">Scale</div>
+        <div class="price-amt">$999</div>
+        <div class="price-per">per month · no contract</div>
+      </div>
+      <div class="price-body">
+        <div class="price-feat"><span class="price-check">✓</span>150 creators contacted per month</div>
+        <div class="price-feat"><span class="price-check">✓</span>Personalized outreach to each creator</div>
+        <div class="price-feat"><span class="price-check">✓</span>Multi-niche sourcing</div>
+        <div class="price-feat"><span class="price-check">✓</span>Priority turnaround</div>
+        <div class="price-feat"><span class="price-check">✓</span>Monthly strategy call</div>
+      </div>
+    </div>
+
+    <div class="price-card-contact">
+      <div class="price-contact-amt">200+</div>
+      <div class="price-contact-sub">creators per month<br>Custom pricing for high-volume brands</div>
+      <a href="mailto:blake@shoresignalagency.com?subject=Enterprise Creator Sourcing — Shore Signal&body=Hi Blake,%0D%0A%0D%0AI'm interested in Shore Signal's enterprise creator sourcing (200+ creators/month).%0D%0A%0D%0ABusiness name:%0D%0AWebsite:%0D%0AMonthly creator volume needed:%0D%0ABest number to reach me:%0D%0A%0D%0ALooking forward to hearing from you." class="btn-outline-sm">
+        Contact Us
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2,6 L10,6 M7,3 L10,6 L7,9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
       </a>
     </div>
   </div>
+
+  <div style="max-width: 1000px; margin-bottom: 48px; padding: 20px 28px; background: var(--brand-light); border-radius: 12px; border: 1px solid var(--brand-mid); display: flex; align-items: flex-start; gap: 14px;">
+    <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--brand-mid); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 11px; font-weight: 700; color: var(--brand);">i</div>
+    <div style="font-size: 13px; color: var(--mid); line-height: 1.6;"><strong style="color: var(--dark);">How it works:</strong> Plan numbers represent creators we source and contact on your behalf each month. Not every creator will respond — typical response rates for personalized outreach range from 30–50%, meaning a Growth plan (50 contacted) typically yields 15–25 warm introductions. We optimize outreach continuously to maximize your response rate.</div>
+  </div>
+
+  <div class="pricing-label">
+    <span class="pl-dot" style="background: var(--warm);"></span>
+    <span class="pl-text">AI Visibility</span>
+    <span class="pl-line"></span>
+  </div>
+
+  <div class="pricing-grid pricing-grid-2">
+    <div class="price-card">
+      <div class="price-head">
+        <div class="price-tier">Essential</div>
+        <div class="price-amt">$997</div>
+        <div class="price-per">per month · no contract</div>
+      </div>
+      <div class="price-body">
+        <div class="price-feat"><span class="price-check">✓</span>AI tracking (ChatGPT, Perplexity, Google AI)</div>
+        <div class="price-feat"><span class="price-check">✓</span>Monthly presence report</div>
+        <div class="price-feat"><span class="price-check">✓</span>Basic presence optimization</div>
+        <div class="price-feat"><span class="price-check">✓</span>Monthly competitor snapshot</div>
+        <div class="price-feat"><span class="price-check">✓</span>Community placements (standard)</div>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-head">
+        <div class="price-tier">Growth</div>
+        <div class="price-amt">$1,997</div>
+        <div class="price-per">per month · no contract</div>
+      </div>
+      <div class="price-body">
+        <div class="price-feat"><span class="price-check">✓</span>Everything in Essential</div>
+        <div class="price-feat"><span class="price-check">✓</span>Accelerated placements (3× volume)</div>
+        <div class="price-feat"><span class="price-check">✓</span>Deep competitor analysis + action plan</div>
+        <div class="price-feat"><span class="price-check">✓</span>3 content pieces per month</div>
+        <div class="price-feat"><span class="price-check">✓</span>Monthly 30-min strategy call</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-label">
+    <span class="pl-dot" style="background: linear-gradient(135deg, var(--brand), var(--warm));"></span>
+    <span class="pl-text">Bundle & Save</span>
+    <span class="pl-line"></span>
+  </div>
+
+  <div class="bundle">
+    <div class="bundle-left">
+      <div class="bundle-badge">Save 15%</div>
+      <div class="bundle-title">Combine both services and save.</div>
+      <div class="bundle-desc">Creator content builds trust. AI visibility captures demand. Most brands that scale fast use both — and we make it easy to run them together at a discount.</div>
+    </div>
+    <div class="bundle-right">
+      <div class="bundle-example">
+        <div class="bundle-ex-label">Growth Creators + Essential AI</div>
+        <div class="bundle-ex-price"><span class="strike">$1,496</span>$1,272/mo</div>
+        <div class="bundle-ex-detail">50 creators + AI visibility</div>
+      </div>
+      <div class="bundle-example">
+        <div class="bundle-ex-label">Scale Creators + Growth AI</div>
+        <div class="bundle-ex-price"><span class="strike">$2,996</span>$2,547/mo</div>
+        <div class="bundle-ex-detail">150 creators + full AI visibility</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="pricing-note">All plans include a free consultation before you commit to anything</p>
 </section>
 
-<!-- ── URGENCY ───────────────────────────────────────────────────────── -->
-<div class="urgency">
-  <div class="urgency-icon">
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-      <circle cx="26" cy="26" r="25" fill="rgba(193,127,59,0.1)" stroke="rgba(193,127,59,0.25)" stroke-width="1"/>
-      <path d="M10,28 C14,22 18,34 22,28 C26,22 30,34 34,28 C38,22 42,34 46,28" stroke="#C17F3B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-      <path d="M10,34 C14,28 18,40 22,34 C26,28 30,40 34,34 C38,28 42,40 46,34" stroke="#C17F3B" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.45"/>
-    </svg>
+<section class="cta-section" id="get-started">
+  <div class="cta-title">Your competitors are already<br>building their pipeline.</div>
+  <div class="cta-sub">The brands winning right now aren't just running ads. They're building creator networks and showing up in AI answers. Drop your email — we'll reach out within 24 hours.</div>
+  <div id="cta-form-wrapper">
+    <form class="email-form email-form-dark" id="cta-form" data-source="cta" style="max-width: 480px; margin: 0 auto;">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </form>
+    <div class="form-note form-note-light" style="text-align: center;">Free consultation. No commitment required.</div>
   </div>
-  <div class="urgency-text">
-    <div class="urgency-headline">Summer 2026 is almost here.</div>
-    <div class="urgency-body">Tourists are planning their trips right now — and most of them are using AI to decide where to go.</div>
-  </div>
-  <span class="urgency-pill">Act Before Peak Season</span>
-</div>
-
-<!-- ── THE SHIFT ─────────────────────────────────────────────────────── -->
-<section class="shift" id="how-it-works">
-  <div class="section-label">The Landscape Has Changed</div>
-  <h2>Search died in <em>2025.</em></h2>
-  <p class="section-lead">Travelers no longer scroll through Google. They ask one question, get 3–5 names, and book. The businesses in those answers are packed. The ones that aren't have no idea what happened.</p>
-
-  <div class="shift-grid">
-    <div class="sc sc-1">
-      <div class="sc-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <rect x="8" y="30" width="7" height="10" rx="1" fill="rgba(255,255,255,0.5)"/>
-          <rect x="19" y="22" width="7" height="18" rx="1" fill="rgba(255,255,255,0.65)"/>
-          <rect x="30" y="14" width="7" height="26" rx="1" fill="rgba(255,255,255,0.8)"/>
-          <path d="M8,18 L15,12 L22,19 L30,8" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="sc-yr">Then — 2024</div>
-      <div class="sc-h">Google Search</div>
-      <div class="sc-b">Travelers Googled a question and clicked through ten links. You competed on rankings and reviews. Your position on the list determined whether you got the business.</div>
-    </div>
-    <div class="sc sc-2">
-      <div class="sc-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <circle cx="22" cy="22" r="9" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
-          <path d="M14,22 Q22,14 30,22" stroke="rgba(255,255,255,0.9)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M9,22 Q22,7 35,22" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path d="M4,22 Q22,0 40,22" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none" stroke-linecap="round"/>
-          <circle cx="22" cy="22" r="3" fill="white"/>
-        </svg>
-      </div>
-      <div class="sc-yr">Now — 2026</div>
-      <div class="sc-h">AI Answers</div>
-      <div class="sc-b">Tourists ask ChatGPT "best restaurant on 30A" and get 4 names. No scrolling, no comparing. The AI says go here — and they go.</div>
-    </div>
-    <div class="sc sc-3">
-      <div class="sc-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M8,36 L16,22 L22,30 L30,16 L36,8" stroke="#1A6B72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M30,8 L36,8 L36,14" stroke="#1A6B72" stroke-width="2" stroke-linecap="round"/>
-          <line x1="8" y1="38" x2="36" y2="38" stroke="rgba(26,107,114,0.25)" stroke-width="1"/>
-        </svg>
-      </div>
-      <div class="sc-yr">The Problem</div>
-      <div class="sc-h">Most Are Invisible</div>
-      <div class="sc-b">AI systems learn from online communities and forums — not from Google listings. Most local businesses haven't adapted. They're simply absent from the answers tourists are reading.</div>
-    </div>
-    <div class="sc sc-4">
-      <div class="sc-icon">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-          <path d="M8,36 L16,28 L22,32 L30,18 L36,8" stroke="#C17F3B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M30,8 L36,8 L36,14" stroke="#C17F3B" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="16" cy="28" r="3" fill="#C17F3B"/>
-          <circle cx="22" cy="32" r="3" fill="#C17F3B"/>
-          <circle cx="30" cy="18" r="3" fill="#C17F3B"/>
-        </svg>
-      </div>
-      <div class="sc-yr">The Opportunity</div>
-      <div class="sc-h">First Movers Win</div>
-      <div class="sc-b">Businesses that build AI visibility now will own their local market for years. Summer 2026 is the tipping point — and the window is open right now.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SERVICES ───────────────────────────────────────────────────────── -->
-<section class="services-section">
-  <div class="section-label">Our Work</div>
-  <h2>What Shore Signal <em>does.</em></h2>
-  <p class="section-lead">We handle everything in the background. You get a clean monthly report and more customers who found you through AI.</p>
-
-  <div class="services-list">
-    <div class="svc">
-      <div class="svc-ico">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <rect x="4" y="18" width="5" height="8" rx="1" fill="rgba(255,255,255,0.6)"/>
-          <rect x="12" y="12" width="5" height="14" rx="1" fill="rgba(255,255,255,0.8)"/>
-          <rect x="20" y="7" width="5" height="19" rx="1" fill="white"/>
-          <path d="M5,12 L9,8 L14,13 L20,5" stroke="rgba(255,255,255,0.65)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="svc-body">
-        <div class="svc-t">Monthly AI Visibility Tracking</div>
-        <div class="svc-d">We monitor your presence across ChatGPT, Google AI, Perplexity, and more — and send a clear monthly report showing exactly where you stand vs. competitors.</div>
-      </div>
-    </div>
-    <div class="svc">
-      <div class="svc-ico">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <circle cx="15" cy="15" r="9" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" fill="none"/>
-          <path d="M6,15 C8,11 12,8 15,15 C18,22 22,19 24,15" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <line x1="6" y1="15" x2="24" y2="15" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
-          <line x1="15" y1="6" x2="15" y2="24" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
-        </svg>
-      </div>
-      <div class="svc-body">
-        <div class="svc-t">AI Presence Optimization</div>
-        <div class="svc-d">We optimize your listings, website content, and digital footprint so AI systems surface your business accurately and consistently when tourists search.</div>
-      </div>
-    </div>
-    <div class="svc">
-      <div class="svc-ico">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <path d="M5,6 Q5,4 7,4 L23,4 Q25,4 25,6 L25,16 Q25,18 23,18 L16,18 L11,24 L11,18 L7,18 Q5,18 5,16 Z" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.1)"/>
-          <line x1="10" y1="10" x2="20" y2="10" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="10" y1="14" x2="16" y2="14" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="svc-body">
-        <div class="svc-t">Strategic Community Presence</div>
-        <div class="svc-d">The forums and Q&A sites AI references most are full of tourists asking for recommendations. We make sure you're in those conversations — authentically and consistently.</div>
-      </div>
-    </div>
-    <div class="svc">
-      <div class="svc-ico">
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <circle cx="13" cy="13" r="7" stroke="white" stroke-width="1.5" fill="none"/>
-          <line x1="18.5" y1="18.5" x2="25" y2="25" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="10" y1="13" x2="16" y2="13" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="13" y1="10" x2="13" y2="16" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="svc-body">
-        <div class="svc-t">Competitor Intelligence</div>
-        <div class="svc-d">Every month we check how often your competitors appear in AI results vs. you. Wherever there's a gap, we close it before the next tourist wave arrives.</div>
-      </div>
-    </div>
+  <div class="form-success form-success-light" id="cta-success">
+    <div class="form-success-text">You're in.</div>
+    <div class="form-success-sub">We'll be in touch within 24 hours.</div>
   </div>
 </section>
 
-<!-- ── INDUSTRIES ─────────────────────────────────────────────────────── -->
-<section class="industries-section" id="industries">
-  <div class="section-label">Industries We Serve</div>
-  <h2>Built for businesses <em>like yours.</em></h2>
-  <p class="section-lead">If tourists visit you, they're searching for you on AI. We work with the core industries that make beach towns run.</p>
-
-  <div class="industries-grid">
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <line x1="13" y1="8" x2="13" y2="28" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M10,8 L10,17 Q10,19 13,19" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-          <line x1="23" y1="8" x2="23" y2="28" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M20,8 Q26,8 26,14 Q26,19 20,19" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="ind-label">Restaurants & Cafés</div>
-      <div class="ind-desc">When tourists ask AI "where should we eat?" — we make sure your restaurant is the name they act on.</div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <path d="M7,21 L18,10 L29,21" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="12" y="21" width="12" height="8" rx="1" stroke="var(--teal)" stroke-width="1.5" fill="none"/>
-          <rect x="16" y="24" width="4" height="5" rx="0.5" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
-        </svg>
-      </div>
-      <div class="ind-label">Vacation Rentals</div>
-      <div class="ind-desc">Travelers plan rentals weeks out. AI is their first stop. We put you there before they open a booking site.</div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <path d="M18,8 C18,8 10,14 10,19 C10,23 13.5,26 18,26 C22.5,26 26,23 26,19 C26,14 18,8 18,8Z" stroke="var(--teal)" stroke-width="1.5" fill="rgba(26,107,114,0.08)"/>
-          <path d="M18,12 C18,12 13,16.5 13,19.5 C13,21.5 15,23 18,23" stroke="var(--teal)" stroke-width="1.3" stroke-linecap="round" fill="none"/>
-        </svg>
-      </div>
-      <div class="ind-label">Spas & Wellness</div>
-      <div class="ind-desc">Wellness is one of the top-searched visitor categories. We ensure you appear when they're ready to book.</div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <path d="M10,15 L12,10 L24,10 L26,15 L26,28 Q26,29 25,29 L11,29 Q10,29 10,28 Z" stroke="var(--teal)" stroke-width="1.5" fill="none"/>
-          <path d="M14,15 C14,12.5 16,10.5 18,10.5 C20,10.5 22,12.5 22,15" stroke="var(--teal)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="ind-label">Boutique Shops</div>
-      <div class="ind-desc">Visitors plan shopping the same way they plan dinner. We put your shop in the "hidden gems" AI searches.</div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <rect x="8" y="14" width="20" height="15" rx="1" stroke="var(--teal)" stroke-width="1.5" fill="none"/>
-          <line x1="8" y1="14" x2="18" y2="7" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="28" y1="14" x2="18" y2="7" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round"/>
-          <rect x="13" y="21" width="5" height="8" rx="0.5" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
-          <rect x="19" y="21" width="5" height="5" rx="0.5" stroke="var(--teal)" stroke-width="1.2" fill="none"/>
-        </svg>
-      </div>
-      <div class="ind-label">Hotels & Lodging</div>
-      <div class="ind-desc">AI is where travelers compare stays. One extra booking per month covers this service many times over.</div>
-    </div>
-    <div class="ind-card">
-      <div class="ind-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="17" fill="var(--light)" stroke="rgba(26,107,114,0.15)" stroke-width="1"/>
-          <path d="M8,23 C10,20 13,25 18,23 C23,21 26,25 28,23" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <path d="M12,23 L10,14 L22,14 L24,23" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M17,14 L17,9 L23,14" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="rgba(26,107,114,0.1)"/>
-        </svg>
-      </div>
-      <div class="ind-label">Charters & Outdoors</div>
-      <div class="ind-desc">Fishing charters, kayak tours, surf schools — tourists ask AI what to do. We make sure your business is the one they find.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRICING ────────────────────────────────────────────────────────── -->
-<section class="pricing-section" id="pricing">
-  <div class="section-label">Investment</div>
-  <h2>Two clear <em>options.</em></h2>
-  <p class="section-lead">No long-term contracts. Pick the level that fits — we handle everything from day one.</p>
-
-  <div class="pricing-grid">
-    <div class="pc">
-      <div class="ph">
-        <div class="p-tier">Essential</div>
-        <div class="p-amt">$997</div>
-        <div class="p-per">per month · no contract</div>
-      </div>
-      <div class="pfs">
-        <div class="pf"><div class="pck">✓</div>AI visibility tracking (ChatGPT, Perplexity, Google AI)</div>
-        <div class="pf"><div class="pck">✓</div>Monthly presence report</div>
-        <div class="pf"><div class="pck">✓</div>Basic presence optimization</div>
-        <div class="pf"><div class="pck">✓</div>Monthly competitor snapshot</div>
-        <div class="pf"><div class="pck">✓</div>Community placements (standard)</div>
-        <div class="pf"><div class="pck">✓</div>Monthly summary email</div>
-      </div>
-    </div>
-    <div class="pc feat">
-      <div class="ph">
-        <div class="p-tier">Growth</div>
-        <div class="p-amt">$1,997</div>
-        <div class="p-per">per month · no contract</div>
-      </div>
-      <div class="pfs">
-        <div class="pf"><div class="pck">✓</div>Everything in Essential</div>
-        <div class="pf"><div class="pck">✓</div>Wider platform monitoring</div>
-        <div class="pf"><div class="pck">✓</div>Accelerated placements (3× volume)</div>
-        <div class="pf"><div class="pck">✓</div>Deep competitor analysis + action plan</div>
-        <div class="pf"><div class="pck">✓</div>3 content pieces per month</div>
-        <div class="pf"><div class="pck">✓</div>Monthly 30-min strategy call</div>
-      </div>
-    </div>
-  </div>
-  <p class="pricing-note">All plans include a free AI Visibility Snapshot before you commit to anything</p>
-</section>
-
-<!-- ── HOW IT STARTS ──────────────────────────────────────────────────── -->
-<section class="steps-section" id="getting-started">
-  <div class="section-label">Getting Started</div>
-  <h2>Simple from <em>day one.</em></h2>
-  <p class="section-lead">You don't manage anything. We run everything in the background and send you results each month.</p>
-
-  <div class="steps-grid">
-    <div class="step">
-      <span class="step-num">01</span>
-      <div class="step-ico">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <circle cx="20" cy="18" r="8" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" fill="none"/>
-          <line x1="20" y1="10" x2="20" y2="4" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="20" y1="26" x2="20" y2="36" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="12" y1="18" x2="6" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="28" y1="18" x2="34" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="20" cy="18" r="3" fill="rgba(255,255,255,0.9)"/>
-        </svg>
-      </div>
-      <div class="step-title">Free AI Snapshot</div>
-      <div class="step-desc">We run a free visibility check on your business across major AI platforms and send a clear 1-page report. No charge, no commitment.</div>
-    </div>
-    <div class="step-arr">→</div>
-    <div class="step">
-      <span class="step-num">02</span>
-      <div class="step-ico">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <path d="M20,4 C24,4 32,9 32,18 L32,25 L25,32 L22,32 L22,27 L18,27 L18,32 L15,32 L8,25 L8,18 C8,9 16,4 20,4Z" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" fill="rgba(255,255,255,0.1)"/>
-          <circle cx="20" cy="17" r="3.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" fill="none"/>
-          <path d="M15,32 L13,37" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M25,32 L27,37" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M8,22 L4,24" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M32,22 L36,24" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="step-title">We Get to Work</div>
-      <div class="step-desc">If you'd like to move forward, we start immediately. Tracking, optimization, placements, and reporting — all handled. You just see results.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA ───────────────────────────────────────────────────────────── -->
-<section class="cta-section">
-  <h2>The tourists coming this summer<br>are searching <em>right now.</em></h2>
-  <p>AI results are shaped by what's online today — not in August.<br>Get your free Visibility Report before peak season begins.</p>
-  <div class="cta-actions">
-    <a href="mailto:blake@shoresignalagency.com?subject=Free AI Visibility Report — Request&body=Hi there,%0D%0A%0D%0AI'd like to request a free AI Visibility Snapshot for my business.%0D%0A%0D%0A--- My Business Info ---%0D%0A%0D%0ABusiness name:%0D%0AIndustry (restaurant, rental, spa, charter, hotel, etc.):%0D%0AWebsite:%0D%0ALocation on 30A:%0D%0ABest number to reach me:%0D%0A%0D%0A--- Optional ---%0D%0A%0D%0AWhat's your biggest concern about AI visibility right now?%0D%0A%0D%0ALooking forward to hearing from you." class="btn-sand">Get My Free AI Report</a>
-    <a href="mailto:blake@shoresignalagency.com?subject=Let's Talk — Shore Signal" class="btn-ghost-light">Contact Us</a>
-  </div>
-</section>
-
-</main>
-
-<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
 <footer>
-  <div class="foot-brand">Shore <em>Signal.</em></div>
+  <div class="foot-brand">Shore Signal</div>
   <div class="foot-contact">
-    <a href="mailto:blake@shoresignalagency.com?subject=Free AI Visibility Report — Request&body=Hi there,%0D%0A%0D%0AI'd like to request a free AI Visibility Snapshot for my business.%0D%0A%0D%0A--- My Business Info ---%0D%0A%0D%0ABusiness name:%0D%0AIndustry (restaurant, rental, spa, charter, hotel, etc.):%0D%0AWebsite:%0D%0ALocation on 30A:%0D%0ABest number to reach me:%0D%0A%0D%0A--- Optional ---%0D%0A%0D%0AWhat's your biggest concern about AI visibility right now?%0D%0A%0D%0ALooking forward to hearing from you.">blake@shoresignalagency.com</a><br>
+    <a href="mailto:blake@shoresignalagency.com">blake@shoresignalagency.com</a><br>
     <a href="https://shoresignalagency.com">shoresignalagency.com</a>
   </div>
-  <div class="foot-tag">Gulf Coast<br>Florida<br>2026<br><a href="/privacy.html" style="color:rgba(255,255,255,0.3);text-decoration:none;font-size:9px;">Privacy Policy</a></div>
+  <div class="foot-tag">© 2026</div>
 </footer>
+
+<!-- Success modal -->
+<div class="ss-modal-backdrop" id="ss-modal" role="dialog" aria-modal="true" aria-labelledby="ss-modal-title">
+  <div class="ss-modal">
+    <button type="button" class="ss-modal-close" id="ss-modal-close" aria-label="Close">&times;</button>
+    <div class="ss-modal-check">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16.5L13.5 22L24 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2 id="ss-modal-title">You're in. Congrats!</h2>
+    <p>Thanks for reaching out. The team will get back to you within 24 hours.<br>Want to skip the wait? Book a call right now.</p>
+    <div class="ss-modal-actions">
+      <button type="button" class="ss-btn-primary" id="ss-schedule-btn">
+        Schedule a call now
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="ss-btn-secondary" id="ss-modal-dismiss">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<!-- Calendly inline widget script (loaded on demand) -->
+<script>
+(function () {
+  const CALENDLY_URL = 'https://calendly.com/blakehoward12/15min';
+
+  const modal = document.getElementById('ss-modal');
+  const closeBtn = document.getElementById('ss-modal-close');
+  const dismissBtn = document.getElementById('ss-modal-dismiss');
+  const scheduleBtn = document.getElementById('ss-schedule-btn');
+
+  function openModal() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', closeModal);
+  dismissBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  let calendlyLoaded = false;
+  function loadCalendlyAssets() {
+    return new Promise((resolve) => {
+      if (calendlyLoaded) return resolve();
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = () => { calendlyLoaded = true; resolve(); };
+      document.head.appendChild(script);
+    });
+  }
+  scheduleBtn.addEventListener('click', async () => {
+    await loadCalendlyAssets();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, '_blank', 'noopener');
+    }
+  });
+
+  document.querySelectorAll('.email-form').forEach((form) => {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const wrapper = this.parentElement;
+      const success = wrapper.nextElementSibling;
+      const btn = this.querySelector('button');
+      const input = this.querySelector('input[type="email"]');
+      const originalText = btn.innerHTML;
+      const email = (input.value || '').trim();
+
+      btn.innerHTML = 'Sending...';
+      btn.disabled = true;
+
+      const eventId =
+        (window.crypto && window.crypto.randomUUID)
+          ? window.crypto.randomUUID()
+          : 'evt-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+      const source = this.dataset.source || 'unknown';
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email,
+            source,
+            eventId,
+            pageUrl: window.location.href,
+          }),
+        });
+        const data = await response.json().catch(() => ({}));
+        if (response.ok) {
+          wrapper.style.display = 'none';
+          if (success && success.classList) success.classList.add('show');
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'Lead', { source }, { eventID: eventId });
+          }
+          openModal();
+          input.value = '';
+        } else {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          alert(data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert('Network error. Please try again.');
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
-
-<!-- test -->
-<!-- deploy-test-2 -->
