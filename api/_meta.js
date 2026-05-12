@@ -9,11 +9,19 @@
 //   META_TEST_EVENT_CODE — set while testing to make events show in Events Manager → Test Events
 import crypto from 'node:crypto';
 
-const GRAPH_VERSION = 'v19.0';
+const GRAPH_VERSION = 'v21.0';
 const DEFAULT_PIXEL_ID = '1459427022141284';
+const LEAD_VALUE = 1;          // placeholder USD value so Meta can rank events
+const LEAD_CURRENCY = 'USD';
 
 function sha256(s) {
   return crypto.createHash('sha256').update(String(s)).digest('hex');
+}
+
+function formNameFor(source) {
+  if (source === 'hero') return 'Hero form';
+  if (source === 'cta')  return 'Bottom CTA form';
+  return 'Email form';
 }
 
 export function newEventId() {
@@ -41,11 +49,25 @@ export async function sendMetaEvent({
   }
 
   const userData = {};
-  if (email) userData.em = [sha256(String(email).trim().toLowerCase())];
+  if (email) {
+    const emailHash = sha256(String(email).trim().toLowerCase());
+    userData.em = [emailHash];
+    // Stable per-user identifier for cross-device matching.
+    userData.external_id = [emailHash];
+  }
   if (ip) userData.client_ip_address = ip;
   if (userAgent) userData.client_user_agent = userAgent;
   if (fbp) userData.fbp = fbp;
   if (fbc) userData.fbc = fbc;
+
+  const customData = {
+    value: LEAD_VALUE,
+    currency: LEAD_CURRENCY,
+    content_name: formNameFor(source),
+    content_category: 'lead_form',
+    lead_event_source: source || 'unknown',
+    source: source || 'unknown',
+  };
 
   const event = {
     event_name: eventName,
@@ -54,7 +76,7 @@ export async function sendMetaEvent({
     action_source: 'website',
     event_source_url: eventSourceUrl,
     user_data: userData,
-    custom_data: source ? { source } : undefined,
+    custom_data: customData,
   };
 
   const body = { data: [event] };
