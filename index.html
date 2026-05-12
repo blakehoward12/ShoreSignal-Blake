@@ -220,6 +220,12 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     position: relative;
     z-index: 2;
     max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
 
   .hero h1 {
@@ -229,6 +235,16 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     letter-spacing: -0.035em;
     color: var(--black);
   }
+
+  .hero-form-center {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-form-center .email-form { width: 100%; }
+  .hero-form-center .form-note { text-align: center; }
 
   .hero-bottom {
     position: relative;
@@ -1483,6 +1499,19 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
   </div>
   <div class="hero-content">
     <h1>Creator sourcing & AI visibility for scaling DTC brands</h1>
+    <div class="hero-form-center">
+      <div id="hero-form-wrapper">
+        <form class="email-form" id="hero-form" data-source="hero">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+        <div class="form-note">Free consultation. No commitment required.</div>
+      </div>
+      <div class="form-success" id="hero-success">
+        <div class="form-success-text">You're in.</div>
+        <div class="form-success-sub">We'll be in touch within 24 hours.</div>
+      </div>
+    </div>
   </div>
 
   <div class="hero-bottom">
@@ -1505,17 +1534,6 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
           </div>
         </div>
         <div class="hero-platform-text">ChatGPT, Perplexity<br>& Google AI Coverage</div>
-      </div>
-      <div id="hero-form-wrapper">
-        <form class="email-form" id="hero-form" data-source="hero">
-          <input type="email" name="email" placeholder="Enter your email" required>
-          <button type="submit">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </form>
-        <div class="form-note">Free consultation. No commitment required.</div>
-      </div>
-      <div class="form-success" id="hero-success">
-        <div class="form-success-text">You're in.</div>
-        <div class="form-success-sub">We'll be in touch within 24 hours.</div>
       </div>
     </div>
   </div>
