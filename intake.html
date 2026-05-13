@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Shore Signal — Tell Us About Your Brand</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f5f5f4;color:#111;-webkit-font-smoothing:antialiased;min-height:100vh;padding:48px 24px}
+
+.container{max-width:600px;margin:0 auto}
+
+.header{text-align:center;margin-bottom:48px}
+.logo{font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:24px}
+h1{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#111;margin-bottom:10px}
+.sub{font-size:15px;font-weight:400;color:#666;line-height:1.6}
+
+.form-card{background:white;border-radius:20px;padding:40px 36px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 8px 32px rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.04)}
+
+.field{margin-bottom:28px}
+.field:last-of-type{margin-bottom:0}
+
+.field label{display:block;font-size:14px;font-weight:600;color:#111;margin-bottom:8px}
+.field .hint{font-size:12px;font-weight:400;color:#999;margin-bottom:8px;margin-top:-4px}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="url"]{
+  width:100%;padding:14px 18px;border:1.5px solid #e5e5e5;border-radius:12px;
+  font-family:inherit;font-size:14px;color:#111;background:#fafaf9;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;outline:none
+}
+.field input:focus{border-color:#2d5a7b;box-shadow:0 0 0 3px rgba(45,90,123,0.08);background:white}
+.field input::placeholder{color:#bbb}
+
+.field textarea{
+  width:100%;padding:14px 18px;border:1.5px solid #e5e5e5;border-radius:12px;
+  font-family:inherit;font-size:14px;color:#111;background:#fafaf9;
+  transition:border-color 0.2s,box-shadow 0.2s,background 0.2s;outline:none;
+  resize:vertical;min-height:90px;line-height:1.6
+}
+.field textarea:focus{border-color:#2d5a7b;box-shadow:0 0 0 3px rgba(45,90,123,0.08);background:white}
+.field textarea::placeholder{color:#bbb}
+
+.field select{
+  width:100%;padding:14px 18px;border:1.5px solid #e5e5e5;border-radius:12px;
+  font-family:inherit;font-size:14px;color:#111;background:#fafaf9;
+  transition:border-color 0.2s,box-shadow 0.2s;outline:none;
+  appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 18px center
+}
+.field select:focus{border-color:#2d5a7b;box-shadow:0 0 0 3px rgba(45,90,123,0.08)}
+
+.checkboxes{display:flex;flex-direction:column;gap:10px}
+.check-item{display:flex;align-items:center;gap:10px;cursor:pointer}
+.check-item input[type="checkbox"]{
+  width:20px;height:20px;border:1.5px solid #ddd;border-radius:6px;
+  appearance:none;cursor:pointer;flex-shrink:0;position:relative;
+  transition:background 0.15s,border-color 0.15s;background:white
+}
+.check-item input[type="checkbox"]:checked{background:#2d5a7b;border-color:#2d5a7b}
+.check-item input[type="checkbox"]:checked::after{
+  content:'\2713';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  color:white;font-size:12px;font-weight:700
+}
+.check-item span{font-size:14px;color:#333}
+
+.divider{height:1px;background:#f0f0f0;margin:32px 0}
+
+.submit-btn{
+  width:100%;padding:18px;border:none;border-radius:14px;
+  background:#2d5a7b;color:white;font-family:inherit;font-size:15px;font-weight:600;
+  cursor:pointer;transition:background 0.2s,transform 0.2s;margin-top:32px
+}
+.submit-btn:hover{background:#1e3d52;transform:translateY(-1px)}
+.submit-btn:active{transform:translateY(0)}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+.form-note{font-size:12px;color:#bbb;text-align:center;margin-top:14px}
+.form-error{color:#b00020;font-size:13px;text-align:center;margin-top:12px;min-height:18px}
+
+.success{display:none;text-align:center;padding:60px 20px}
+.success.show{display:block}
+.success-icon{font-size:48px;margin-bottom:16px;color:#2d5a7b}
+.success-text{font-size:22px;font-weight:700;color:#2d5a7b;margin-bottom:8px}
+.success-sub{font-size:15px;color:#666;line-height:1.6}
+
+.footer{text-align:center;margin-top:40px;font-size:12px;color:#bbb}
+.footer a{color:#888;text-decoration:none}
+.footer a:hover{color:#111}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">Shore Signal</div>
+    <h1>Tell us about your brand.</h1>
+    <p class="sub">Quick questions so we can come prepared for our call. Takes about 2 minutes.</p>
+  </div>
+
+  <div class="form-card" id="form-card">
+    <form id="intake-form" novalidate>
+
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" name="name" placeholder="First and last" required>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@yourbrand.com" required>
+      </div>
+
+      <div class="field">
+        <label>Brand name</label>
+        <input type="text" name="brand_name" placeholder="Your brand name" required>
+      </div>
+
+      <div class="field">
+        <label>Website or social links</label>
+        <div class="hint">Website, Instagram, TikTok, whatever works</div>
+        <input type="url" name="website" placeholder="https://yourbrand.com">
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <label>What do you sell and who's your target customer?</label>
+        <textarea name="product_and_customer" placeholder="E.g. We sell organic skincare to women 25 to 40 who care about clean ingredients"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Are you currently working with any UGC creators?</label>
+        <select name="current_creators" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="No, not yet">No, not yet</option>
+          <option value="Yes, 1 to 5">Yes, 1 to 5</option>
+          <option value="Yes, 5 to 20">Yes, 5 to 20</option>
+          <option value="Yes, 20+">Yes, 20+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>How are you finding and reaching out to creators right now?</label>
+        <select name="current_method" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="Doing it myself">Doing it myself (DMs, emails)</option>
+          <option value="Using a platform">Using a platform (Collabstr, Insense, etc.)</option>
+          <option value="Working with an agency">Working with an agency</option>
+          <option value="Not doing it yet">Not doing it yet</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>What's the biggest pain point with your current creator process?</label>
+        <textarea name="pain_point" placeholder="E.g. I spend hours finding creators and most of my DMs get ignored"></textarea>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field">
+        <label>What does success look like for you?</label>
+        <div class="hint">Check all that apply</div>
+        <div class="checkboxes">
+          <label class="check-item"><input type="checkbox" name="goals" value="More creators"><span>More creators making content for my brand</span></label>
+          <label class="check-item"><input type="checkbox" name="goals" value="Better content quality"><span>Better content quality</span></label>
+          <label class="check-item"><input type="checkbox" name="goals" value="More volume and consistency"><span>More volume and consistency</span></label>
+          <label class="check-item"><input type="checkbox" name="goals" value="Saving time"><span>Saving time on outreach and sourcing</span></label>
+          <label class="check-item"><input type="checkbox" name="goals" value="Not sure yet"><span>Not sure yet, just exploring</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Is there a specific timeline or launch you're building toward?</label>
+        <input type="text" name="timeline" placeholder="E.g. Product launch in June, holiday campaign, etc.">
+      </div>
+
+      <div class="field">
+        <label>Anything else we should know?</label>
+        <textarea name="anything_else" placeholder="Optional. Budget range, specific niches, past experiences, whatever's on your mind."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      <div class="form-note">We'll review this before our call so we come prepared.</div>
+      <div class="form-error" id="form-error"></div>
+    </form>
+  </div>
+
+  <div class="success" id="success">
+    <div class="success-icon">&#10003;</div>
+    <div class="success-text">All set.</div>
+    <div class="success-sub">We've got your answers and we'll come prepared for our call. Looking forward to it.</div>
+  </div>
+
+  <div class="footer">
+    <a href="/">Shore Signal</a> &middot; <a href="mailto:blake@shoresignalagency.com">blake@shoresignalagency.com</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('intake-form');
+  var card = document.getElementById('form-card');
+  var success = document.getElementById('success');
+  var errEl = document.getElementById('form-error');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.textContent = '';
+    var btn = form.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    var fd = new FormData(form);
+    var payload = {};
+    fd.forEach(function (v, k) {
+      if (k === 'goals') return;
+      payload[k] = v;
+    });
+    payload.goals = fd.getAll('goals');
+
+    try {
+      var r = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      var data = await r.json().catch(function () { return {}; });
+      if (r.ok) {
+        card.style.display = 'none';
+        success.classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        errEl.textContent = data.error || 'Submission failed. Please try again.';
+        btn.textContent = orig;
+        btn.disabled = false;
+      }
+    } catch (err) {
+      errEl.textContent = 'Network error. Please try again.';
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

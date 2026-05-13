@@ -86,6 +86,42 @@
     outline: none; min-width: 240px;
   }
   .search:focus { border-color: var(--brand-vivid); }
+
+  .tabs {
+    display: flex; gap: 4px; margin-bottom: 20px;
+    background: #efece8; border-radius: 100px; padding: 4px;
+    width: fit-content;
+  }
+  .tab {
+    border: none; background: transparent; padding: 8px 18px;
+    border-radius: 100px; font: inherit; font-size: 13px;
+    font-weight: 600; color: var(--mid); cursor: pointer;
+  }
+  .tab.active { background: white; color: var(--black); box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+
+  td.wrap-cell { white-space: pre-wrap; word-break: break-word; max-width: 320px; }
+  .detail-btn {
+    border: 1px solid var(--border); background: white;
+    border-radius: 8px; padding: 4px 10px; font: inherit;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+  .detail-btn:hover { border-color: var(--black); }
+  .modal-bg {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    display: none; align-items: center; justify-content: center;
+    padding: 24px; z-index: 100;
+  }
+  .modal-bg.show { display: flex; }
+  .modal {
+    background: white; border-radius: 16px; padding: 28px 32px;
+    max-width: 640px; width: 100%; max-height: 85vh; overflow-y: auto;
+  }
+  .modal h2 { font-size: 18px; margin-bottom: 6px; }
+  .modal .meta { color: var(--mid); font-size: 13px; margin-bottom: 20px; }
+  .modal dl { display: grid; grid-template-columns: 160px 1fr; gap: 10px 16px; font-size: 14px; }
+  .modal dt { font-weight: 600; color: var(--mid); }
+  .modal dd { color: var(--black); white-space: pre-wrap; word-break: break-word; }
+  .modal .close { float: right; margin-top: -8px; }
 </style>
 </head>
 <body>
@@ -105,18 +141,23 @@
 <div id="dash-view" class="wrap" style="display:none;">
   <div class="top">
     <div>
-      <h1>Leads</h1>
+      <h1 id="view-title">Leads</h1>
       <div class="sub"><span id="lead-count" class="count">0 leads</span></div>
     </div>
     <div class="actions">
-      <input type="search" class="search" id="search" placeholder="Search email or source...">
+      <input type="search" class="search" id="search" placeholder="Search...">
       <button class="btn" id="refresh-btn">Refresh</button>
       <button class="btn btn-primary" id="download-btn">Download CSV</button>
       <button class="btn" id="logout-btn">Sign out</button>
     </div>
   </div>
 
-  <div class="card">
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="leads" type="button">Leads</button>
+    <button class="tab" data-tab="intakes" type="button">Intakes</button>
+  </div>
+
+  <div class="card" id="leads-card">
     <table>
       <thead>
         <tr>
@@ -130,6 +171,26 @@
     </table>
     <div class="empty" id="empty-state" style="display:none;">No leads yet.</div>
   </div>
+
+  <div class="card" id="intakes-card" style="display:none;">
+    <table>
+      <thead>
+        <tr>
+          <th>Submitted</th>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="intake-tbody"></tbody>
+    </table>
+    <div class="empty" id="intake-empty" style="display:none;">No intakes yet.</div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal"></div>
 </div>
 
 <script>
@@ -142,13 +203,23 @@
   const loginErr = document.getElementById('login-err');
   const tbody = document.getElementById('lead-tbody');
   const emptyEl = document.getElementById('empty-state');
+  const intakeTbody = document.getElementById('intake-tbody');
+  const intakeEmpty = document.getElementById('intake-empty');
+  const leadsCard = document.getElementById('leads-card');
+  const intakesCard = document.getElementById('intakes-card');
   const countEl = document.getElementById('lead-count');
+  const titleEl = document.getElementById('view-title');
   const searchEl = document.getElementById('search');
   const refreshBtn = document.getElementById('refresh-btn');
   const downloadBtn = document.getElementById('download-btn');
   const logoutBtn = document.getElementById('logout-btn');
+  const tabs = document.querySelectorAll('.tab');
+  const modalBg = document.getElementById('modal-bg');
+  const modal = document.getElementById('modal');
 
+  let activeTab = 'leads';
   let allLeads = [];
+  let allIntakes = [];
 
   function getPw() { return sessionStorage.getItem(PW_KEY); }
   function setPw(v) { sessionStorage.setItem(PW_KEY, v); }
@@ -166,10 +237,8 @@
 
   function fmtDate(iso) {
     if (!iso) return '';
-    try {
-      const d = new Date(iso);
-      return d.toLocaleString();
-    } catch { return iso; }
+    try { return new Date(iso).toLocaleString(); }
+    catch { return iso; }
   }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
@@ -177,16 +246,16 @@
     }[c]));
   }
 
-  function render(leads) {
+  function renderLeads(leads) {
     tbody.innerHTML = '';
     if (!leads.length) {
       emptyEl.style.display = 'block';
-      countEl.textContent = `0 leads`;
+      countEl.textContent = '0 leads';
       return;
     }
     emptyEl.style.display = 'none';
-    countEl.textContent = `${leads.length} lead${leads.length === 1 ? '' : 's'}`;
-    const html = leads.map((l) => `
+    countEl.textContent = leads.length + ' lead' + (leads.length === 1 ? '' : 's');
+    tbody.innerHTML = leads.map((l) => `
       <tr>
         <td class="email">${esc(l.email)}</td>
         <td class="muted">${esc(l.source || '')}</td>
@@ -194,30 +263,62 @@
         <td class="muted">${esc(l.ip || '')}</td>
       </tr>
     `).join('');
-    tbody.innerHTML = html;
+  }
+
+  function renderIntakes(intakes) {
+    intakeTbody.innerHTML = '';
+    if (!intakes.length) {
+      intakeEmpty.style.display = 'block';
+      countEl.textContent = '0 intakes';
+      return;
+    }
+    intakeEmpty.style.display = 'none';
+    countEl.textContent = intakes.length + ' intake' + (intakes.length === 1 ? '' : 's');
+    intakeTbody.innerHTML = intakes.map((it, idx) => `
+      <tr>
+        <td class="muted">${esc(fmtDate(it.createdAt))}</td>
+        <td>${esc(it.name || '')}</td>
+        <td>${esc(it.brand_name || '')}</td>
+        <td class="email">${esc(it.email || '')}</td>
+        <td><button class="detail-btn" data-idx="${idx}">View</button></td>
+      </tr>
+    `).join('');
   }
 
   function applyFilter() {
     const q = searchEl.value.trim().toLowerCase();
-    if (!q) return render(allLeads);
-    render(allLeads.filter((l) =>
-      (l.email || '').toLowerCase().includes(q) ||
-      (l.source || '').toLowerCase().includes(q)
-    ));
+    if (activeTab === 'leads') {
+      const list = !q ? allLeads : allLeads.filter((l) =>
+        (l.email || '').toLowerCase().includes(q) ||
+        (l.source || '').toLowerCase().includes(q)
+      );
+      renderLeads(list);
+    } else {
+      const list = !q ? allIntakes : allIntakes.filter((it) =>
+        (it.email || '').toLowerCase().includes(q) ||
+        (it.name || '').toLowerCase().includes(q) ||
+        (it.brand_name || '').toLowerCase().includes(q)
+      );
+      renderIntakes(list);
+    }
   }
 
-  async function fetchLeads() {
+  async function authFetch(path) {
     const pw = getPw();
-    if (!pw) return showLogin();
-    const res = await fetch('/api/admin/list', {
-      headers: { 'Authorization': 'Bearer ' + pw },
-    });
+    if (!pw) { showLogin(); return null; }
+    const res = await fetch(path, { headers: { 'Authorization': 'Bearer ' + pw } });
     if (res.status === 401) {
       clearPw();
       showLogin();
       loginErr.textContent = 'Session expired. Sign in again.';
-      return;
+      return null;
     }
+    return res;
+  }
+
+  async function fetchLeads() {
+    const res = await authFetch('/api/admin/list');
+    if (!res) return;
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       alert(data.error || 'Failed to load leads.');
@@ -225,14 +326,88 @@
     }
     const data = await res.json();
     allLeads = data.leads || [];
-    applyFilter();
+    if (activeTab === 'leads') applyFilter();
   }
+
+  async function fetchIntakes() {
+    const res = await authFetch('/api/admin/intakes-list');
+    if (!res) return;
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || 'Failed to load intakes.');
+      return;
+    }
+    const data = await res.json();
+    allIntakes = data.intakes || [];
+    if (activeTab === 'intakes') applyFilter();
+  }
+
+  function refreshActive() {
+    return activeTab === 'leads' ? fetchLeads() : fetchIntakes();
+  }
+
+  function switchTab(name) {
+    activeTab = name;
+    tabs.forEach((t) => t.classList.toggle('active', t.dataset.tab === name));
+    if (name === 'leads') {
+      leadsCard.style.display = '';
+      intakesCard.style.display = 'none';
+      titleEl.textContent = 'Leads';
+      searchEl.placeholder = 'Search email or source...';
+    } else {
+      leadsCard.style.display = 'none';
+      intakesCard.style.display = '';
+      titleEl.textContent = 'Intakes';
+      searchEl.placeholder = 'Search name, brand, or email...';
+    }
+    searchEl.value = '';
+    applyFilter();
+    refreshActive();
+  }
+
+  function openIntakeDetail(it) {
+    const fields = [
+      ['Submitted', fmtDate(it.createdAt)],
+      ['Name', it.name],
+      ['Email', it.email],
+      ['Brand', it.brand_name],
+      ['Website / socials', it.website],
+      ['Product & customer', it.product_and_customer],
+      ['Currently working with creators', it.current_creators],
+      ['Current method', it.current_method],
+      ['Biggest pain point', it.pain_point],
+      ['Success looks like', Array.isArray(it.goals) ? it.goals.join(', ') : (it.goals || '')],
+      ['Timeline', it.timeline],
+      ['Anything else', it.anything_else],
+      ['IP', it.ip],
+    ];
+    modal.innerHTML = `
+      <button class="btn close" id="modal-close" type="button">Close</button>
+      <h2>${esc(it.brand_name || it.name || it.email)}</h2>
+      <div class="meta">${esc(fmtDate(it.createdAt))}</div>
+      <dl>
+        ${fields.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v || '—')}</dd>`).join('')}
+      </dl>
+    `;
+    modalBg.classList.add('show');
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+  }
+  function closeModal() { modalBg.classList.remove('show'); }
+  modalBg.addEventListener('click', (e) => { if (e.target === modalBg) closeModal(); });
+
+  intakeTbody.addEventListener('click', (e) => {
+    const b = e.target.closest('.detail-btn');
+    if (!b) return;
+    const idx = parseInt(b.dataset.idx, 10);
+    if (!Number.isNaN(idx) && allIntakes[idx]) openIntakeDetail(allIntakes[idx]);
+  });
+
+  tabs.forEach((t) => t.addEventListener('click', () => switchTab(t.dataset.tab)));
 
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     loginErr.textContent = '';
     const pw = pwInput.value;
-    // Verify by attempting a list call
     const res = await fetch('/api/admin/list', {
       headers: { 'Authorization': 'Bearer ' + pw },
     });
@@ -242,6 +417,7 @@
       showDash();
       const data = await res.json();
       allLeads = data.leads || [];
+      fetchIntakes();
       applyFilter();
     } else if (res.status === 401) {
       loginErr.textContent = 'Wrong password.';
@@ -251,33 +427,22 @@
     }
   });
 
-  refreshBtn.addEventListener('click', fetchLeads);
+  refreshBtn.addEventListener('click', refreshActive);
   searchEl.addEventListener('input', applyFilter);
-  logoutBtn.addEventListener('click', () => {
-    clearPw();
-    showLogin();
-  });
+  logoutBtn.addEventListener('click', () => { clearPw(); showLogin(); });
+
   downloadBtn.addEventListener('click', async () => {
-    const pw = getPw();
-    if (!pw) return showLogin();
-    const res = await fetch('/api/admin/csv', {
-      headers: { 'Authorization': 'Bearer ' + pw },
-    });
-    if (res.status === 401) {
-      clearPw();
-      showLogin();
-      return;
-    }
-    if (!res.ok) {
-      alert('Download failed.');
-      return;
-    }
+    const path = activeTab === 'leads' ? '/api/admin/csv' : '/api/admin/intakes-csv';
+    const filePrefix = activeTab === 'leads' ? 'shore-signal-leads' : 'shore-signal-intakes';
+    const res = await authFetch(path);
+    if (!res) return;
+    if (!res.ok) { alert('Download failed.'); return; }
     const blob = await res.blob();
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
     const stamp = new Date().toISOString().slice(0, 10);
-    a.download = `shore-signal-leads-${stamp}.csv`;
+    a.download = `${filePrefix}-${stamp}.csv`;
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -287,6 +452,7 @@
   if (getPw()) {
     showDash();
     fetchLeads();
+    fetchIntakes();
   } else {
     showLogin();
   }
