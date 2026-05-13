@@ -56,11 +56,11 @@ h1{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#111;margin-botto
 }
 .field select:focus{border-color:#2d5a7b;box-shadow:0 0 0 3px rgba(45,90,123,0.08)}
 
-.checkboxes{display:flex;flex-direction:column;gap:10px}
-.check-item{display:flex;align-items:center;gap:10px;cursor:pointer}
+.checkboxes{display:flex;flex-direction:column;gap:12px}
+.check-item{display:flex;align-items:flex-start;gap:12px;cursor:pointer;line-height:1.4}
 .check-item input[type="checkbox"]{
   width:20px;height:20px;border:1.5px solid #ddd;border-radius:6px;
-  appearance:none;cursor:pointer;flex-shrink:0;position:relative;
+  appearance:none;cursor:pointer;flex-shrink:0;position:relative;margin-top:1px;
   transition:background 0.15s,border-color 0.15s;background:white
 }
 .check-item input[type="checkbox"]:checked{background:#2d5a7b;border-color:#2d5a7b}
