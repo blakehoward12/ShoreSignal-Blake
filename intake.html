@@ -237,6 +237,7 @@ h1{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#111;margin-botto
         card.style.display = 'none';
         success.classList.add('show');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(function () { window.location.href = '/'; }, 2200);
       } else {
         errEl.textContent = data.error || 'Submission failed. Please try again.';
         btn.textContent = orig;
