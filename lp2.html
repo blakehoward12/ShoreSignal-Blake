@@ -226,6 +226,12 @@ h1{font-size:clamp(28px,3.5vw,42px);font-weight:500;letter-spacing:-0.03em;line-
       window.open(CALENDLY_URL, '_blank', 'noopener');
     }
   });
+
+  window.addEventListener('message', function(e){
+    if (e && e.data && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = '/intake';
+    }
+  });
 })();
 </script>
 </body>

@@ -1842,6 +1842,13 @@ src="https://www.facebook.com/tr?id=1459427022141284&ev=PageView&noscript=1"/></
     }
   });
 
+  // Redirect to the intake form once a Calendly booking is confirmed.
+  window.addEventListener('message', (e) => {
+    if (e && e.data && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = '/intake';
+    }
+  });
+
   // ── Motion polish ─────────────────────────────────────────
   // Hero load reveal — trigger after first paint.
   requestAnimationFrame(() => {

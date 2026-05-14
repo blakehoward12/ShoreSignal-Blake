@@ -168,6 +168,12 @@ h1{font-size:clamp(32px,5vw,48px);font-weight:500;letter-spacing:-0.035em;line-h
       window.open(CALENDLY_URL, '_blank', 'noopener');
     }
   });
+
+  window.addEventListener('message', function(e){
+    if (e && e.data && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = '/intake';
+    }
+  });
 })();
 </script>
 </body>
