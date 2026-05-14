@@ -87,6 +87,7 @@ h1{font-size:clamp(32px,5vw,48px);font-weight:500;letter-spacing:-0.035em;line-h
       if (r.ok) {
         wrap.style.display = 'none';
         success.classList.add('show');
+        openSuccessModal();
       } else {
         errEl.textContent = data.error || 'Submission failed. Please try again.';
         btn.textContent = orig;
@@ -96,6 +97,75 @@ h1{font-size:clamp(32px,5vw,48px);font-weight:500;letter-spacing:-0.035em;line-h
       errEl.textContent = 'Network error. Please try again.';
       btn.textContent = orig;
       btn.disabled = false;
+    }
+  });
+})();
+</script>
+
+<style>
+.cal-modal-bg{position:fixed;inset:0;background:rgba(17,17,17,0.55);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:1000;padding:24px;opacity:0;transition:opacity 0.25s ease}
+.cal-modal-bg.show{display:flex;opacity:1}
+.cal-modal{background:#fff;color:#111;border-radius:24px;max-width:480px;width:100%;padding:48px 40px 40px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.3);position:relative;transform:translateY(12px);transition:transform 0.25s ease;font-family:'Plus Jakarta Sans',sans-serif}
+.cal-modal-bg.show .cal-modal{transform:translateY(0)}
+.cal-modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;background:transparent;cursor:pointer;border-radius:50%;color:#888;font-size:22px;transition:background 0.2s,color 0.2s}
+.cal-modal-close:hover{background:#eee;color:#111}
+.cal-check{width:64px;height:64px;border-radius:50%;background:rgba(45,90,123,0.12);color:#2d5a7b;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px}
+.cal-modal h2{font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:#111}
+.cal-modal p{font-size:15px;color:#555;line-height:1.55;margin-bottom:28px}
+.cal-btn{background:#3a7ca5;color:white;border:none;border-radius:100px;padding:16px 28px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:background 0.2s;width:100%}
+.cal-btn:hover{background:#2d5a7b}
+</style>
+
+<div class="cal-modal-bg" id="cal-modal" role="dialog" aria-modal="true">
+  <div class="cal-modal">
+    <button type="button" class="cal-modal-close" id="cal-modal-close" aria-label="Close">&times;</button>
+    <div class="cal-check">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16.5L13.5 22L24 11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>Nice! Let's Chat.</h2>
+    <p>We keep it quick: 15 minutes, zero fluff. Book a time and we'll walk you through how it works.</p>
+    <button type="button" class="cal-btn" id="cal-schedule-btn">
+      Pick a Time
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3,7 L11,7 M8,4 L11,7 L8,10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CALENDLY_URL = 'https://calendly.com/blakehoward12/15min';
+  var modal = document.getElementById('cal-modal');
+  var closeBtn = document.getElementById('cal-modal-close');
+  var schedBtn = document.getElementById('cal-schedule-btn');
+  var loaded = false;
+
+  function loadAssets() {
+    return new Promise(function(resolve){
+      if (loaded) return resolve();
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+      var s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      s.onload = function(){ loaded = true; resolve(); };
+      document.head.appendChild(s);
+    });
+  }
+  function openModal(){ modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeModal(){ modal.classList.remove('show'); document.body.style.overflow = ''; }
+  window.openSuccessModal = openModal;
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+  schedBtn.addEventListener('click', async function(){
+    await loadAssets();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, '_blank', 'noopener');
     }
   });
 })();
