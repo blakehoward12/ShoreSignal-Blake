@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shore Signal — UGC Creator Sourcing for DTC Brands</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fafaf9;color:#111;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+.page{max-width:720px;margin:0 auto;padding:80px 24px 60px;display:flex;flex-direction:column;align-items:center}
+
+.logo{font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:48px}
+
+h1{font-size:clamp(28px,4vw,40px);font-weight:500;letter-spacing:-0.03em;line-height:1.15;color:#111;text-align:center;margin-bottom:12px}
+
+.sub{font-size:16px;font-weight:400;color:#555;line-height:1.6;text-align:center;margin-bottom:48px;max-width:480px}
+
+.compare{width:100%;border-radius:16px;overflow:hidden;border:1px solid #e5e5e5;margin-bottom:48px}
+
+.compare-header{display:grid;grid-template-columns:1fr 1fr 1fr}
+.compare-header div{padding:16px 20px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+.ch-label{background:#f5f5f5;color:#888}
+.ch-you{background:#f5f5f5;color:#888;text-align:center}
+.ch-us{background:#111;color:white;text-align:center}
+
+.compare-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f0f0f0}
+.compare-row:hover{background:#fafafa}
+
+.cr-label{padding:16px 20px;font-size:13px;font-weight:600;color:#111;display:flex;align-items:center}
+.cr-you{padding:16px 20px;font-size:14px;font-weight:400;color:#888;text-align:center;display:flex;align-items:center;justify-content:center}
+.cr-us{padding:16px 20px;font-size:14px;font-weight:600;color:#2d5a7b;text-align:center;display:flex;align-items:center;justify-content:center;background:rgba(45,90,123,0.03)}
+
+.cr-bad{color:#cc4444}
+.cr-good{color:#2d5a7b}
+
+.form-section{width:100%;max-width:480px;text-align:center}
+
+.form-title{font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#111;margin-bottom:8px}
+.form-sub{font-size:14px;color:#888;margin-bottom:24px}
+
+.email-form{display:flex;gap:0;border-radius:100px;overflow:hidden;border:2px solid #e5e5e5;background:white;transition:border-color 0.2s,box-shadow 0.2s}
+.email-form:focus-within{border-color:#2d5a7b;box-shadow:0 4px 24px rgba(45,90,123,0.12)}
+.email-form input{flex:1;border:none;outline:none;padding:18px 24px;font-family:inherit;font-size:15px;color:#111;background:transparent;min-width:0}
+.email-form input::placeholder{color:#bbb}
+.email-form button{border:none;background:#2d5a7b;color:white;font-family:inherit;font-size:14px;font-weight:600;padding:18px 32px;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.email-form button:hover{background:#1e3d52}
+.email-form button:disabled{opacity:0.7;cursor:not-allowed}
+
+.note{font-size:12px;color:#bbb;margin-top:14px}
+.err{color:#b00020;font-size:13px;margin-top:10px;min-height:18px}
+
+.success{display:none;padding:20px}
+.success.show{display:block}
+.success-text{font-size:18px;font-weight:700;color:#2d5a7b;margin-bottom:4px}
+.success-sub{font-size:14px;color:#555}
+
+@media(max-width:600px){
+  .compare-header div,.cr-label,.cr-you,.cr-us{padding:12px 12px;font-size:11px}
+  .email-form{flex-direction:column;border-radius:16px}
+  .email-form button{border-radius:0 0 14px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="logo">Shore Signal</div>
+  <h1>Stop doing creator outreach yourself.</h1>
+  <p class="sub">See why brands hand it off to us.</p>
+
+  <div class="compare">
+    <div class="compare-header">
+      <div class="ch-label"></div>
+      <div class="ch-you">Doing It Yourself</div>
+      <div class="ch-us">Shore Signal</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Hours per week</div>
+      <div class="cr-you cr-bad">10+</div>
+      <div class="cr-us cr-good">0</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Creators contacted / mo</div>
+      <div class="cr-you cr-bad">5 to 10</div>
+      <div class="cr-us cr-good">50 to 200+</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Outreach quality</div>
+      <div class="cr-you cr-bad">Copy paste templates</div>
+      <div class="cr-us cr-good">Personalized for each</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Response rate</div>
+      <div class="cr-you cr-bad">5 to 10%</div>
+      <div class="cr-us cr-good">30 to 50%</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Creator vetting</div>
+      <div class="cr-you cr-bad">Scrolling and guessing</div>
+      <div class="cr-us cr-good">Matched to your niche</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Your involvement</div>
+      <div class="cr-you cr-bad">Everything</div>
+      <div class="cr-us cr-good">Close the ones who reply</div>
+    </div>
+
+    <div class="compare-row">
+      <div class="cr-label">Contracts</div>
+      <div class="cr-you" style="color:#555">N/A</div>
+      <div class="cr-us cr-good">None. Cancel anytime.</div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-title">Ready to hand it off?</div>
+    <div class="form-sub">Drop your email. We'll show you how it works.</div>
+    <div id="form-wrap">
+      <form class="email-form" id="form" novalidate>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Get Started</button>
+      </form>
+      <div class="note">Free consultation. No commitment.</div>
+      <div class="err" id="err"></div>
+    </div>
+    <div class="success" id="success">
+      <div class="success-text">You're in.</div>
+      <div class="success-sub">We'll be in touch within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var LP_SOURCE = 'lp-comparison';
+  var form = document.getElementById('form');
+  var wrap = document.getElementById('form-wrap');
+  var success = document.getElementById('success');
+  var errEl = document.getElementById('err');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    errEl.textContent = '';
+    var btn = form.querySelector('button');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var email = form.querySelector('input[name="email"]').value.trim();
+    try {
+      var r = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: LP_SOURCE, pageUrl: window.location.href }),
+      });
+      var data = await r.json().catch(function(){ return {}; });
+      if (r.ok) {
+        wrap.style.display = 'none';
+        success.classList.add('show');
+      } else {
+        errEl.textContent = data.error || 'Submission failed. Please try again.';
+        btn.textContent = orig;
+        btn.disabled = false;
+      }
+    } catch (err) {
+      errEl.textContent = 'Network error. Please try again.';
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

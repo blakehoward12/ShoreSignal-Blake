@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shore Signal — UGC Creator Sourcing for DTC Brands</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fafaf9;color:#111;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+
+.card{max-width:520px;width:100%;text-align:center}
+
+.logo{font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:48px}
+
+h1{font-size:clamp(32px,5vw,48px);font-weight:500;letter-spacing:-0.035em;line-height:1.1;color:#111;margin-bottom:20px}
+
+.sub{font-size:17px;font-weight:400;color:#555;line-height:1.6;margin-bottom:48px}
+
+.email-form{display:flex;gap:0;border-radius:100px;overflow:hidden;border:2px solid #e5e5e5;background:white;transition:border-color 0.2s,box-shadow 0.2s;max-width:460px;margin:0 auto}
+.email-form:focus-within{border-color:#2d5a7b;box-shadow:0 4px 24px rgba(45,90,123,0.12)}
+.email-form input{flex:1;border:none;outline:none;padding:18px 24px;font-family:inherit;font-size:15px;color:#111;background:transparent;min-width:0}
+.email-form input::placeholder{color:#bbb}
+.email-form button{border:none;background:#2d5a7b;color:white;font-family:inherit;font-size:14px;font-weight:600;padding:18px 32px;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+.email-form button:hover{background:#1e3d52}
+.email-form button:disabled{opacity:0.7;cursor:not-allowed}
+
+.note{font-size:12px;color:#bbb;margin-top:14px}
+.err{color:#b00020;font-size:13px;margin-top:10px;min-height:18px}
+
+.success{display:none;padding:20px}
+.success.show{display:block}
+.success-text{font-size:18px;font-weight:700;color:#2d5a7b;margin-bottom:4px}
+.success-sub{font-size:14px;color:#555}
+
+@media(max-width:500px){
+  .email-form{flex-direction:column;border-radius:16px}
+  .email-form button{border-radius:0 0 14px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">Shore Signal</div>
+  <h1>We find UGC creators and reach out on your behalf.</h1>
+  <p class="sub">You just close the ones who respond.</p>
+  <div id="form-wrap">
+    <form class="email-form" id="form" novalidate>
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Get Started</button>
+    </form>
+    <div class="note">Free consultation. No commitment.</div>
+    <div class="err" id="err"></div>
+  </div>
+  <div class="success" id="success">
+    <div class="success-text">You're in.</div>
+    <div class="success-sub">We'll be in touch within 24 hours.</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var LP_SOURCE = 'lp-one-liner';
+  var form = document.getElementById('form');
+  var wrap = document.getElementById('form-wrap');
+  var success = document.getElementById('success');
+  var errEl = document.getElementById('err');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    errEl.textContent = '';
+    var btn = form.querySelector('button');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var email = form.querySelector('input[name="email"]').value.trim();
+    try {
+      var r = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, source: LP_SOURCE, pageUrl: window.location.href }),
+      });
+      var data = await r.json().catch(function(){ return {}; });
+      if (r.ok) {
+        wrap.style.display = 'none';
+        success.classList.add('show');
+      } else {
+        errEl.textContent = data.error || 'Submission failed. Please try again.';
+        btn.textContent = orig;
+        btn.disabled = false;
+      }
+    } catch (err) {
+      errEl.textContent = 'Network error. Please try again.';
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
